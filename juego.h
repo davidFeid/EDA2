@@ -8,21 +8,18 @@ typedef struct{
     char habilidades[];
 }Protagonista;
 
-typedef struct escena1
-{
-    Fantasma *vida;
-    
-};
-
 
 typedef struct{
     int vida;
     int ataque;
     int defensa;
-}Fantasma;
+}Enemigo1;
 
 typedef struct{
-    int option;
-    Fantasma *enemigo;
-    Protagonista *prota;
-}Cementerio;
+    int vida;
+    int ataque;
+    int defensa;
+}Enemigo2;
+
+
+
