@@ -28,7 +28,5 @@ void printHabilidad(Habilidad *habilidad) {
 }
 
 void freeHabilidad(Habilidad *habilidad){
-    // @brief Frees the game_state memory if it is not NULL
-    // @Returns: nothing
     if(habilidad != NULL) free(habilidad);
 }

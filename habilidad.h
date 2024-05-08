@@ -21,6 +21,6 @@ void init_habilidad(Habilidad *habilidad,
                     int modificadorDefensa,
                     int modificadorHP);
 
-void imprimirHabilidad(Habilidad *habilidad);
+void printHabilidad(Habilidad *habilidad);
 
-void liberarHabilidad(Habilidad *habilidad);
+void freeHabilidad(Habilidad *habilidad);

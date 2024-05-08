@@ -2,24 +2,24 @@
 #include "enemigo.h"
 
 
-void init_enemigo(Enemigo *enemy,  char *nombre, int vida, int ataque, int defensa) {
-    strcpy(enemy->nombre, nombre);
+void init_enemigo(Enemigo *enemigo,  char *nombre, int vida, int ataque, int defensa) {
+    strcpy(enemigo->nombre, nombre);
     enemigo->vida = vida;
     enemigo->ataque = ataque;
     enemigo->defensa = defensa;
 }
 
-void print_enemigo( Enemigo *enemy) {
+void print_enemigo( Enemigo *enemigo) {
     printf("Nombre: %s\n", enemigo->nombre);
     printf("Vida: %d\n", enemigo->vida);
     printf("Ataque: %d\n", enemigo->ataque);
     printf("Defensa: %d\n", enemigo->defensa);
 }
 
-void free_enemigo(Enemigo *enemy){
-   if (enemy!=NULL)
+void free_enemigo(Enemigo *enemigo){
+   if (enemigo!=NULL)
    {
-     free(enemy);   
+     free(enemigo);   
     }
     
 }
