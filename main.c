@@ -101,5 +101,6 @@ int main(){
     inicializar_enemigos();
     inicializar_decision();
     inicializar_escenario();
+    inicializar_opcion();
     return 0;
 }
