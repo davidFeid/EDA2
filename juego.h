@@ -1,11 +1,11 @@
 #include <stdio.h>
 
 typedef struct{
-    char nombre[] ;
+    char nombre[50] ;
     int vida;
     int ataque;
     int defensa;
-    char habilidades[];
+    char habilidades[50];
 }Protagonista;
 
 

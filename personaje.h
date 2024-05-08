@@ -7,8 +7,8 @@ typedef struct{
     int ataque;
     int defensa;
     char habilidades[4][50];
-}Protagonista;
+}Personaje;
 
-void init_prota(Protagonista *prota,  char *nombre, int vida, int ataque, int defensa,  char habilidades[4][50]);
-void print_prota(Protagonista *prota);
-void free_protagonista(Protagonista *prota);
+void init_personaje(Personaje *personaje);
+void print_personaje(Personaje *personaje);
+void free_personaje(Personaje *personaje);
