@@ -53,3 +53,4 @@ void free_enemigo(Enemigo *enemigo){
     }
     
 }
+
