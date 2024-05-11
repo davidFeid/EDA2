@@ -1,27 +1,27 @@
 #include "decision.h"
 
-/* void init(Decision *decision,  char *pregunta, int num_opciones,  char *opciones[3][100]) {
-    strcpy(decision->pregunta, pregunta);
+void init_decision(Decision *decision, char *texto_pregunta, Opcion *opciones, int num_opciones) {
+    // Copiar los valores pasados como argumentos a la estructura decision
+    strcpy(decision->texto_pregunta, texto_pregunta);
+    decision->opciones = opciones;
     decision->num_opciones = num_opciones;
-    for (int i = 0; i < num_opciones; i++) {
-        strcpy(decision->opciones[i], opciones[i]);
-    }
-} */
+}
 
-
-void print( Decision *decision) {
-    printf("Pregunta: %s\n", decision->pregunta);
-    printf("Número de opciones: %d\n", decision->num_opciones);
+// Función para imprimir una decisión
+void print_decision(Decision *decision) {
+    printf("Pregunta: %s\n", decision->texto_pregunta);
     printf("Opciones:\n");
-    for (int i = 0; i < decision->num_opciones; ++i) {
-        printf("%d. %s\n", i + 1, decision->opciones[i]);
+    for (int i = 0; i < decision->num_opciones; i++) {
+        printf("  Opción %d:\n", i+1);
+        print_opcion(&decision->opciones[i]);
     }
 }
 
+// Función para liberar memoria de una decisión
 void free_decision(Decision *decision) {
-    if (decision!=NULL)
-    {
-        free(decision);
+    // Liberar memoria de las opciones si es necesario
+    if (decision->opciones != NULL) {
+        free(decision->opciones);
     }
-    
+    // No necesitas liberar memoria para el campo de texto ya que es un array estático
 }
