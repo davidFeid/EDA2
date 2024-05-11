@@ -10,10 +10,10 @@
                 "-Wall",
                 "-g",
                 "${fileDirname}\\enemigo.c",
-                "${fileDirname}\\escena.c",
-                "${fileDirname}\\habilidad.c",
-                "${fileDirname}\\decision.c",
+                "${fileDirname}\\opcion.c",
                 "${fileDirname}\\personaje.c",
+                "${fileDirname}\\decision.c",
+                "${fileDirname}\\escenario.c",
                 "${fileDirname}\\main.c",
                 "-o",
                 "${fileDirname}\\main.exe"
