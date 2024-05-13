@@ -7,8 +7,8 @@ void inicializar_enemigos(){
     Enemigo cofretrampa;
     init_enemigo(&cofretrampa, "Cofre Trampa", 225, 100, 200);
 
-    Enemigo enemigos_opcion1[] = {fantasma,cofretrampa};
-    inicializar_opcion(enemigos_opcion1);
+    //Enemigo enemigos_opcion1[] = {fantasma,cofretrampa};
+    //inicializar_opcion(enemigos_opcion1);
 
     Enemigo subordinadoelfo;
     init_enemigo(&subordinadoelfo, "Subordinado elfo", 125, 120, 80);
@@ -28,21 +28,31 @@ void inicializar_enemigos(){
 
     Enemigo blaze;
     init_enemigo(&blaze, "BLAZE", 1000, 400, 600);
+
+    Enemigo enemigos[][2] = {{fantasma,cofretrampa},{blaze,miniblaze}};
+    inicializar_opcion(enemigos);
 }
 
-void inicializar_opcion(Enemigo *enemigos){
+void inicializar_opcion(Enemigo enemigos[][2]){
     Opcion opcion1; 
-    init_opcion(&opcion1, "Luchar", "Te encuentras con un enemigo poderoso:", enemigos, 2, "Has derrotado al enemigo.");
+    init_opcion(&opcion1, "Luchar", "Te encuentras con un enemigo poderoso:", enemigos[0], 2, "Has derrotado al enemigo.");
 
-    Opcion opciones_decision1[] = {opcion1};
-    inicializar_decision(opciones_decision1);
+    Opcion opcion2; 
+    init_opcion(&opcion2, "Luchar", "Te encuentras con un enemigo poderoso:", enemigos[1], 2, "Has derrotado al enemigo.");
+    
+    print_opcion(&opcion1);
+    Opcion opciones_decision1[] = {opcion1,opcion2};
+    //inicializar_decision(opciones_decision1);
 }
 
 void inicializar_decision(Opcion *opciones){
     Decision decision1;
-    init_decision(&decision1, "¿Qué quieres hacer?", opciones, 1);
+    init_decision(&decision1, "¿Qué quieres hacer?", opciones, 2);
     
     Decision decisiones[] = {decision1};
+    printf("----------------------------------------------------\n");
+    printf("\n Decisioneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeees:\n \n");
+    print_decision(&decision1);
     inicializar_escenario(decisiones);
 }
 
@@ -53,7 +63,7 @@ void inicializar_escenario(Decision *decisiones){
 
     // Imprimir el escenario
     printf("----------------------------------------------------\n");
-    print_escenario(&escenario);
+    //print_escenario(&escenario);
 }
 
 int main() {
