@@ -1,8 +1,11 @@
 #include "main.h"
 
 void inicializar_enemigos(){
-    Enemigo fantasma;
-    init_enemigo(&fantasma, "Fantasma de soldado", 100, 50, 20);
+    Enemigo fantasma1;
+    init_enemigo(&fantasma1, "Fantasma de soldado", 100, 50, 20);
+
+    Enemigo fantasma2;
+    init_enemigo(&fantasma2, "Fantasma de soldado", 100, 50, 20);
    
     Enemigo cofretrampa;
     init_enemigo(&cofretrampa, "Cofre Trampa", 225, 100, 200);
@@ -13,57 +16,82 @@ void inicializar_enemigos(){
     Enemigo subordinadoelfo;
     init_enemigo(&subordinadoelfo, "Subordinado elfo", 125, 120, 80);
     
-
     Enemigo jefoelfe;
     init_enemigo(&jefoelfe, "Elfo Jefe", 400, 150, 300);
     
+    Enemigo tortuguita1;
+    init_enemigo(&tortuguita1, "Tortugas", 155, 210, 400);
 
-    Enemigo tortuga;
-    init_enemigo(&tortuga, "Tortuga", 205, 110, 500);
+    Enemigo tortuguita2;
+    init_enemigo(&tortuguita2, "Tortugas", 155, 210, 400);
     
-
+    Enemigo tortugon;
+    init_enemigo(&tortugon, "Tortuga", 205, 110, 500);
+    
     Enemigo miniblaze;
     init_enemigo(&miniblaze, "Secuaz de Blaze", 350, 120, 300);
     
-
     Enemigo blaze;
     init_enemigo(&blaze, "BLAZE", 1000, 400, 600);
 
-    Enemigo enemigos[][2] = {{fantasma,cofretrampa},{blaze,miniblaze}};
+    Enemigo enemigos[][2] = {{fantasma1,fantasma2},{cofretrampa},{subordinadoelfo},{jefoelfe},{tortuguita1,tortuguita2},{tortugon},{blaze,miniblaze}};
     inicializar_opcion(enemigos);
 }
 
 void inicializar_opcion(Enemigo enemigos[][2]){
-    Opcion opcion1; 
-    init_opcion(&opcion1, "Luchar", "Te encuentras con un enemigo poderoso:", enemigos[0], 2, "Has derrotado al enemigo.");
+    Opcion opcion1_1; 
+    init_opcion(&opcion1_1, "Luchar", "Te encuentras con un enemigo poderoso:", enemigos[1], 1, "Has derrotado al enemigo.");
 
-    Opcion opcion2; 
-    init_opcion(&opcion2, "Luchar", "Te encuentras con un enemigo poderoso:", enemigos[1], 2, "Has derrotado al enemigo.");
+    Opcion opcion1_2; 
+    init_opcion(&opcion1_2, "Luchar", "Te encuentras con un enemigo poderoso:", enemigos[2], 1, "Has derrotado al enemigo.");
+
+    Opcion opcion2_1; 
+    init_opcion(&opcion2_1, "Luchar", "Te encuentras con un enemigo poderoso:", enemigos[3], 1, "Has derrotado al enemigo.");
+
+    Opcion opcion3_1; 
+    init_opcion(&opcion3_1, "Luchar", "Te encuentras con un enemigo poderoso:", enemigos[4], 2, "Has derrotado al enemigo.");
     
-    print_opcion(&opcion1);
-    Opcion opciones_decision1[] = {opcion1,opcion2};
-    //inicializar_decision(opciones_decision1);
+    Opcion opcion3_2; 
+    init_opcion(&opcion3_2, "Luchar", "Te encuentras con un enemigo poderoso:", enemigos[5], 1, "Has derrotado al enemigo.");
+
+    //print_opcion(&opcion1_1);
+    Opcion opciones[][3] = {{opcion1_1,opcion1_2},{opcion2_1},{opcion3_1,opcion3_2}};
+    inicializar_decision(opciones);
 }
 
-void inicializar_decision(Opcion *opciones){
+void inicializar_decision(Opcion opciones[][3]){
     Decision decision1;
-    init_decision(&decision1, "¿Qué quieres hacer?", opciones, 2);
+    init_decision(&decision1, "¿Qué quieres hacer?", opciones[0], 2);
+
+    Decision decision2;
+    init_decision(&decision2, "¿Qué quieres hacer?", opciones[1], 2);
+
+    Decision decision3;
+    init_decision(&decision3, "¿Qué quieres hacer?", opciones[2], 2);
     
-    Decision decisiones[] = {decision1};
-    printf("----------------------------------------------------\n");
-    printf("\n Decisioneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeees:\n \n");
-    print_decision(&decision1);
+    Decision decisiones[] = {decision1,decision2,decision3};
+    
+    //printf("----------------------------------------------------\n");
+    //printf("\n Decisioneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeees:\n \n");
+    //print_decision(&decision1);
     inicializar_escenario(decisiones);
 }
 
-void inicializar_escenario(Decision *decisiones){
+void inicializar_escenario(Decision decisiones[]){
     // Crear el escenario
-    Escenario escenario;
-    init_escenario(&escenario, "Escenario 1", "Descripción del escenario 1", decisiones, 1);
+    
+    Escenario escenario2;
+    init_escenario(&escenario2, "Escenario 2", "Descripción del escenario 2", &decisiones[0], 1);
+
+    Escenario escenario3;
+    init_escenario(&escenario3, "Escenario 3", "Descripción del escenario 3", &decisiones[1], 1);
+
+    Escenario escenario4;
+    init_escenario(&escenario4, "Escenario 4", "Descripción del escenario 4", &decisiones[2], 1);
 
     // Imprimir el escenario
-    printf("----------------------------------------------------\n");
-    //print_escenario(&escenario);
+    //printf("----------------------------------------------------\n");
+    print_escenario(&escenario2);
 }
 
 int main() {

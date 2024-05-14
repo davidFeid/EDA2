@@ -15,7 +15,7 @@ void print_opcion(Opcion *opcion) {
     printf("Narración antes: %s\n", opcion->narracion_antes);
     printf("Enemigos:\n");
     for (int i = 0; i < opcion->num_enemigos; i++) {
-        printf("  Enemigo %d:\n", i+1);
+        printf("Enemigo %d:\n", i+1);
         print_enemigo(&opcion->enemigos[i]);
     }
     printf("Narración después: %s\n", opcion->narracion_despues);
