@@ -1,5 +1,4 @@
 #include "main.h"
-
 void inicializar_enemigos(){
     //Enemigo fantasma;
     Enemigo *fantasma1 = malloc(sizeof(Enemigo));
@@ -42,7 +41,8 @@ void inicializar_enemigos(){
     //Enemigo blaze;
     Enemigo *blaze = malloc(sizeof(Enemigo));
     init_enemigo(blaze, "BLAZE", 1000, 400, 600);
-
+    //
+    //printf("holaa");
     Enemigo *enemigos[][2] = {{fantasma1,fantasma2},{cofretrampa},{subordinadoelfo,jefoelfe},{tortuguita1,tortuguita2},{tortugon},{miniblaze,blaze},{blaze}};
     inicializar_opcion(enemigos);
 }
@@ -86,6 +86,7 @@ void inicializar_opcion(Enemigo *enemigos[][2]){
     //print_opcion(&opcion1_1);
     Opcion *opciones[][3] = {{opcion1_1,opcion1_2,opcion1_3},{opcion2_1,opcion2_2,opcion2_3},{opcion3_1,opcion3_2,opcion3_3},{opcion4_1,opcion4_2}};
     inicializar_decision(opciones);
+    
 }
 
 
@@ -129,7 +130,7 @@ void inicializar_escenario(Decision *decisiones[]){
 
 
     // Imprimir el escenario
-    printf("85555\n");
+    //printf("85555\n");
     print_escenario(escenario1);
 }
 

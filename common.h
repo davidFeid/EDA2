@@ -2,7 +2,7 @@
 #define _COMMON_H_
 
 #define NOMBRE 50
-#define TEXTO 300
+#define TEXTO 2500
 
 
 

@@ -1,6 +1,6 @@
 #include "common.h"
 
-typedef struct Habilidad {
+typedef struct {
     char nombre[NOMBRE];
     char descripcion[TEXTO];
     bool esTemporal; // Verdadero si es un modificador temporal, falso si es un ataque directo
@@ -24,3 +24,4 @@ void init_habilidad(Habilidad *habilidad,
 void printHabilidad(Habilidad *habilidad);
 
 void freeHabilidad(Habilidad *habilidad);
+

@@ -30,3 +30,13 @@ void printHabilidad(Habilidad *habilidad) {
 void freeHabilidad(Habilidad *habilidad){
     if(habilidad != NULL) free(habilidad);
 }
+
+void aplicar_habilidad(Enemigo *enemigo, Habilidad *habilidad) {
+    if (enemigo != NULL && habilidad != NULL) {
+        enemigo->ataque += habilidad->modificadorAtaque;
+        enemigo->defensa += habilidad->modificadorDefensa;
+        enemigo->vida += habilidad->modificadorHP;
+        
+        // Si es un modificador temporal, podríamos necesitar lógica adicional para revertir los cambios después de un tiempo
+    }
+}
