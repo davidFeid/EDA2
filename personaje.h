@@ -2,7 +2,7 @@
 #include "common.h"
 
 typedef struct{
-    char nombre[50] ;
+    char nombre[NOMBRE] ;
     int vida;
     int ataque;
     int defensa;

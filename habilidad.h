@@ -1,8 +1,8 @@
 #include "common.h"
 
 typedef struct Habilidad {
-    char nombre[50];
-    char descripcion[100];
+    char nombre[NOMBRE];
+    char descripcion[TEXTO];
     bool esTemporal; // Verdadero si es un modificador temporal, falso si es un ataque directo
     int duracion;    // Duración en turnos (solo si es temporal)
     int modificadorAtaque;
