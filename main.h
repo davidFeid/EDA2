@@ -6,6 +6,6 @@
 #include "common.h"
 
 void inicializar_enemigos();
-void inicializar_opcion(Enemigo enemigos[][2]);
+void inicializar_opcion(Enemigo *enemigos[][2]);
 void inicializar_decision(Opcion *opciones);
 void inicializar_escenario(Decision *deciones);

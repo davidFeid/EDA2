@@ -1,46 +1,55 @@
 #include "main.h"
 
 void inicializar_enemigos(){
-    Enemigo fantasma;
-    init_enemigo(&fantasma, "Fantasma de soldado", 100, 50, 20);
+    //Enemigo fantasma;
+    Enemigo *fantasma = malloc(sizeof(Enemigo));
+    init_enemigo(fantasma, "Fantasma de soldado", 100, 50, 20);
    
-    Enemigo cofretrampa;
-    init_enemigo(&cofretrampa, "Cofre Trampa", 225, 100, 200);
+    //Enemigo cofretrampa;
+    Enemigo *cofretrampa = malloc(sizeof(Enemigo));
+    init_enemigo(cofretrampa, "Cofre Trampa", 225, 100, 200);
 
     //Enemigo enemigos_opcion1[] = {fantasma,cofretrampa};
     //inicializar_opcion(enemigos_opcion1);
 
-    Enemigo subordinadoelfo;
-    init_enemigo(&subordinadoelfo, "Subordinado elfo", 125, 120, 80);
+    //Enemigo subordinadoelfo;
+    Enemigo *subordinadoelfo = malloc(sizeof(Enemigo));
+    init_enemigo(subordinadoelfo, "Subordinado elfo", 125, 120, 80);
     
 
-    Enemigo jefoelfe;
-    init_enemigo(&jefoelfe, "Elfo Jefe", 400, 150, 300);
+    //Enemigo jefoelfe;
+    Enemigo *jefoelfe = malloc(sizeof(Enemigo));    
+    init_enemigo(jefoelfe, "Elfo Jefe", 400, 150, 300);
     
 
-    Enemigo tortuga;
-    init_enemigo(&tortuga, "Tortuga", 205, 110, 500);
+    //Enemigo tortuga;
+    Enemigo *tortuga = malloc(sizeof(Enemigo));
+    init_enemigo(tortuga, "Tortuga", 205, 110, 500);
     
 
-    Enemigo miniblaze;
-    init_enemigo(&miniblaze, "Secuaz de Blaze", 350, 120, 300);
+    //Enemigo miniblaze;
+    Enemigo *miniblaze = malloc(sizeof(Enemigo));
+    init_enemigo(miniblaze, "Secuaz de Blaze", 350, 120, 300);
     
 
-    Enemigo blaze;
-    init_enemigo(&blaze, "BLAZE", 1000, 400, 600);
+    //Enemigo blaze;
+    Enemigo *blaze = malloc(sizeof(Enemigo));
+    init_enemigo(blaze, "BLAZE", 1000, 400, 600);
 
-    Enemigo enemigos[][2] = {{fantasma,cofretrampa},{blaze,miniblaze}};
-    inicializar_opcion(enemigos);
+    Enemigo *enemigos[][2] = {{fantasma,cofretrampa},{blaze,miniblaze}};
+    //print_enemigo(enemigos[0][1]);
+    inicializar_opcion(&enemigos);
 }
 
-void inicializar_opcion(Enemigo enemigos[][2]){
-    Opcion opcion1; 
-    init_opcion(&opcion1, "Luchar", "Te encuentras con un enemigo poderoso:", enemigos[0], 2, "Has derrotado al enemigo.");
+void inicializar_opcion(Enemigo *enemigos[][2]){
+    //print_enemigo(enemigos[0][1]);
+    Opcion *opcion1 = malloc(sizeof(Opcion)); 
+    init_opcion(opcion1, "Luchar", "Te encuentras con un enemigo poderoso:", enemigos[0], 2, "Has derrotado al enemigo.");
 
-    Opcion opcion2; 
-    init_opcion(&opcion2, "Luchar", "Te encuentras con un enemigo poderoso:", enemigos[1], 2, "Has derrotado al enemigo.");
+    Opcion *opcion2 = malloc(sizeof(Opcion)); 
+    init_opcion(opcion2, "Luchar", "Te encuentras con un enemigo poderoso:", enemigos[1], 2, "Has derrotado al enemigo.");
     
-    print_opcion(&opcion1);
+    //print_opcion(&opcion1);
     Opcion opciones_decision1[] = {opcion1,opcion2};
     //inicializar_decision(opciones_decision1);
 }
