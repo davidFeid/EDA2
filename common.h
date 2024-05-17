@@ -1,7 +1,7 @@
 #ifndef _COMMON_H_
 #define _COMMON_H_
 
-#define NOMBRE 50
+#define NOMBRE 100
 #define TEXTO 2500
 
 

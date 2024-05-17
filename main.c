@@ -1,20 +1,29 @@
 #include "main.h"
-void inicializar_enemigos(){
+void inicializar_habilidades(){
+    Habilidad *espejismo=malloc(sizeof(Habilidad));
+    init_habilidad(espejismo,"espejismo","Esta habilidad reflecta la imagen de fantasmas como un espejo y mejora su defensa",0,20,0);
+    Habilidad *habilidades[]={espejismo};
+    inicializar_enemigos(habilidades);   
+
+}
+void inicializar_enemigos(Habilidad *habilidades[]){
     //Enemigo fantasma;
     Enemigo *fantasma1 = malloc(sizeof(Enemigo));
     init_enemigo(fantasma1, "Fantasma de soldado", 100, 50, 20);
+    aplicar_habilidad(fantasma1,habilidades[0]);
 
     Enemigo *fantasma2 = malloc(sizeof(Enemigo));
     init_enemigo(fantasma2, "Fantasma de soldado", 100, 50, 20);
-   
+    aplicar_habilidad(fantasma2,habilidades[0]);
     //Enemigo cofretrampa;
     Enemigo *cofretrampa = malloc(sizeof(Enemigo));
     init_enemigo(cofretrampa, "Cofre Trampa", 225, 100, 200);
+    aplicar_habilidad(cofretrampa,habilidades[0]);
 
 
-    //Enemigo subordinadoelfo;
+    /* Enemigo subordinadoelfo;
     Enemigo *subordinadoelfo = malloc(sizeof(Enemigo));
-    init_enemigo(subordinadoelfo, "Subordinado elfo", 125, 120, 80);
+    init_enemigo(subordinadoelfo, "Subordinado elfo", 125, 120, 80); 
     
 
     //Enemigo jefoelfe;
@@ -42,9 +51,10 @@ void inicializar_enemigos(){
     Enemigo *blaze = malloc(sizeof(Enemigo));
     init_enemigo(blaze, "BLAZE", 1000, 400, 600);
     //
-    //printf("holaa");
-    Enemigo *enemigos[][2] = {{fantasma1,fantasma2},{cofretrampa},{subordinadoelfo,jefoelfe},{tortuguita1,tortuguita2},{tortugon},{miniblaze,blaze},{blaze}};
-    inicializar_opcion(enemigos);
+    //printf("holaa"); */
+    /* Enemigo *enemigos[][2] = {{fantasma1,fantasma2},{cofretrampa},{subordinadoelfo,jefoelfe},{tortuguita1,tortuguita2},{tortugon},{miniblaze,blaze},{blaze}}; */
+    Enemigo *enemigos[][2] = {{fantasma1,fantasma2},{cofretrampa}};
+    inicializar_opcion(enemigos); 
 }
 
 void inicializar_opcion(Enemigo *enemigos[][2]){
@@ -146,7 +156,7 @@ int main() {
     print_personaje(&miPersonaje);
     printf("----------------------------------------------------\n");
     printf("\nEscenario:\n");
-    inicializar_enemigos();
+    inicializar_habilidades();
     return 0;
 }
 
