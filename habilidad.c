@@ -15,11 +15,11 @@ void init_habilidad(Habilidad *habilidad,
 }
 
 void printHabilidad(Habilidad *habilidad) {
-    printf("            Nombre: %s\n", habilidad->nombre);
-    printf("            Descripción: %s\n", habilidad->descripcion);
-    printf("            Modificador de Ataque: %d\n", habilidad->modificadorAtaque);
-    printf("            Modificador de Defensa: %d\n", habilidad->modificadorDefensa);
-    printf("            Modificador de HP: %d\n", habilidad->modificadorHP);
+    printf("                    Nombre: %s\n", habilidad->nombre);
+    printf("                    Descripción: %s\n", habilidad->descripcion);
+    printf("                    Modificador de Ataque: %d\n", habilidad->modificadorAtaque);
+    printf("                    Modificador de Defensa: %d\n", habilidad->modificadorDefensa);
+    printf("                    Modificador de HP: %d\n", habilidad->modificadorHP);
 }
 
 void freeHabilidad(Habilidad *habilidad){

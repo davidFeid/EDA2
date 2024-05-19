@@ -1,59 +1,80 @@
 #include "main.h"
 void inicializar_habilidades(){
-    Habilidad *espejismo=malloc(sizeof(Habilidad));
-    init_habilidad(espejismo,"espejismo","Esta habilidad reflecta la imagen de fantasmas como un espejo y mejora su defensa",0,20,0);
-    Habilidad *habilidades[]={espejismo};
+    Habilidad *ataquesusto=malloc(sizeof(Habilidad));
+    init_habilidad(ataquesusto,"ataque susto","Los fantasmas desaparacen para asustarte y quitarte vida y puntos de defensa ",0,10,10);
+
+    Habilidad *mordisco=malloc(sizeof(Habilidad));
+    init_habilidad(mordisco,"mordisco","El cofre se abre y te muerde",0,0,15);
+
+    Habilidad *lanzamientocuchillos=malloc(sizeof(Habilidad));
+    init_habilidad(lanzamientocuchillos,"lanzamiento de cuchillos","El elfo subordinado saca un manojo de cuchillos y te los lanza,estos te inmobilizaran los braozos ",10,0,10);
+
+    Habilidad *mazazo=malloc(sizeof(Habilidad));
+    init_habilidad(mazazo,"mazazo","El elfo supremo saca una maza que tenia guardada en la cabeza y te golpea en la cabeza con ella ",0,0,25);
+
+    Habilidad *ataqueacuatico=malloc(sizeof(Habilidad));
+    init_habilidad(ataqueacuatico,"ataque aquatico","Las tortuguitas se sumergen bajo el agua y saltan a por ti las dos a la vez complicando tu defensa ",0,10,5);
+
+    Habilidad *caparazoneterno=malloc(sizeof(Habilidad));
+    init_habilidad(caparazoneterno,"caparazo eterno","El tortugon se esconde bajo el caparazon y rechaza parte de tus ataques ",15,0,0);
+
+    Habilidad *llamaradas=malloc(sizeof(Habilidad));
+    init_habilidad(llamaradas,"llamaradas","Los mini blazes te acrralan con llamaradas de fuego ",0,15,15);
+
+    Habilidad *bloqueatomico=malloc(sizeof(Habilidad));
+    init_habilidad(bloqueatomico,"bloque atomico","EL blaze te lanza un bloque atomico gigantesco que cuando te golpea explosiona y te inmobiliza ",25,25,25);
+
+    Habilidad *habilidades[]={ataquesusto,mordisco,lanzamientocuchillos,mazazo,ataqueacuatico,caparazoneterno,llamaradas,bloqueatomico};
     inicializar_enemigos(habilidades);   
 
 }
 void inicializar_enemigos(Habilidad *habilidades[]){
     //Enemigo fantasma;
     Enemigo *fantasma1 = malloc(sizeof(Enemigo));
-    init_enemigo(fantasma1, "Fantasma de soldado", 100, 50, 20);
-    aplicar_habilidad(fantasma1,habilidades[0]);
+    init_enemigo(fantasma1, "Fantasma de soldado", 100, 50, 20,habilidades[0]);
+    /* aplicar_habilidad(fantasma1,habilidades[0]); */
 
     Enemigo *fantasma2 = malloc(sizeof(Enemigo));
-    init_enemigo(fantasma2, "Fantasma de soldado", 100, 50, 20);
-    aplicar_habilidad(fantasma2,habilidades[0]);
+    init_enemigo(fantasma2, "Fantasma de soldado", 100, 50, 20,habilidades[0]);
+    /* aplicar_habilidad(fantasma2,habilidades[0]); */
     //Enemigo cofretrampa;
     Enemigo *cofretrampa = malloc(sizeof(Enemigo));
-    init_enemigo(cofretrampa, "Cofre Trampa", 225, 100, 200);
-    aplicar_habilidad(cofretrampa,habilidades[0]);
+    init_enemigo(cofretrampa, "Cofre Trampa", 225, 100, 200,habilidades[1]);
+    /* aplicar_habilidad(cofretrampa,habilidades[0]); */
 
 
-    /* Enemigo subordinadoelfo;
     Enemigo *subordinadoelfo = malloc(sizeof(Enemigo));
-    init_enemigo(subordinadoelfo, "Subordinado elfo", 125, 120, 80); 
+    init_enemigo(subordinadoelfo, "Subordinado elfo", 125, 120, 80,habilidades[2]); 
     
 
     //Enemigo jefoelfe;
     Enemigo *jefoelfe = malloc(sizeof(Enemigo));    
-    init_enemigo(jefoelfe, "Elfo Jefe", 400, 150, 300);
+    init_enemigo(jefoelfe, "Elfo Jefe", 400, 150, 300,habilidades[3]);
     
    
     Enemigo *tortuguita1=malloc(sizeof(Enemigo));
-    init_enemigo(tortuguita1, "Tortugas", 155, 210, 400);
+    init_enemigo(tortuguita1, "Tortugas", 155, 210, 400,habilidades[4]);
 
     Enemigo *tortuguita2=malloc(sizeof(Enemigo));;
-    init_enemigo(tortuguita2, "Tortugas", 155, 210, 400);
+    init_enemigo(tortuguita2, "Tortugas", 155, 210, 400,habilidades[4]);
 
     //Enemigo tortuga;
     Enemigo *tortugon = malloc(sizeof(Enemigo));
-    init_enemigo(tortugon, "Tortuga", 205, 110, 500);
+    init_enemigo(tortugon, "Tortuga", 205, 110, 500,habilidades[5]);
     
 
     //Enemigo miniblaze;
     Enemigo *miniblaze = malloc(sizeof(Enemigo));
-    init_enemigo(miniblaze, "Secuaz de Blaze", 350, 120, 300);
+    init_enemigo(miniblaze, "Secuaz de Blaze", 350, 120, 300,habilidades[6]);
     
 
     //Enemigo blaze;
     Enemigo *blaze = malloc(sizeof(Enemigo));
-    init_enemigo(blaze, "BLAZE", 1000, 400, 600);
+    init_enemigo(blaze, "BLAZE", 1000, 400, 600,habilidades[7]);
     //
     //printf("holaa"); */
-    /* Enemigo *enemigos[][2] = {{fantasma1,fantasma2},{cofretrampa},{subordinadoelfo,jefoelfe},{tortuguita1,tortuguita2},{tortugon},{miniblaze,blaze},{blaze}}; */
-    Enemigo *enemigos[][2] = {{fantasma1,fantasma2},{cofretrampa}};
+     Enemigo *enemigos[][2] = {{fantasma1,fantasma2},{cofretrampa},{subordinadoelfo,jefoelfe},{tortuguita1,tortuguita2},{tortugon},{miniblaze,blaze},{blaze}};
+    
     inicializar_opcion(enemigos); 
 }
 
@@ -146,10 +167,20 @@ void inicializar_escenario(Decision *decisiones[]){
 
 int main() {
     // Crear una instancia de la estructura Personaje
-    Personaje miPersonaje;
+    Habilidad habilidadesAtaque[4];
+    init_habilidad(&habilidadesAtaque[0], "Golpe Fuerte", "Un golpe poderoso que aumenta el ataque.", 10, 0, 0);
+    init_habilidad(&habilidadesAtaque[1], "Ataque Rápido", "Un ataque rápido que golpea primero.", 5, 0, 0);
+    init_habilidad(&habilidadesAtaque[2], "Explosión de Fuego", "Una explosión que inflige daño a múltiples enemigos.", 8, 0, 0);
+    init_habilidad(&habilidadesAtaque[3], "Rayo", "Un rayo que atraviesa la defensa enemiga.", 12, 0, 0);
 
-    // Configurar el personaje
-    init_personaje(&miPersonaje);
+    Habilidad habilidadesDefensa[4];
+    init_habilidad(&habilidadesDefensa[0], "Defensa de Hierro", "Una defensa impenetrable que aumenta la defensa.", 0, 10, 0);
+    init_habilidad(&habilidadesDefensa[1], "Escudo Mágico", "Un escudo que reduce el daño recibido.", 0, 8, 0);
+    init_habilidad(&habilidadesDefensa[2], "Curación Rápida", "Recupera puntos de vida rápidamente.", 0, 0, 10);
+    init_habilidad(&habilidadesDefensa[3], "Resistencia", "Aumenta la resistencia a los ataques enemigos.", 0, 7, 5);
+
+    Personaje miPersonaje;
+    init_personaje(&miPersonaje, habilidadesAtaque, 4, habilidadesDefensa, 4);  
 
     // Mostrar los datos del personaje configurado
     printf("\nPensonaje: \n");

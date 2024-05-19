@@ -2,14 +2,23 @@
 #include "enemigo.h"
 
 
-void init_enemigo(Enemigo *enemigo,  char *nombre, int vida, int ataque, int defensa){
+void init_enemigo(Enemigo *enemigo,  char *nombre, int vida, int ataque, int defensa,Habilidad *habilidad){
     strcpy(enemigo->nombre, nombre);
+
+    enemigo->habilidad=malloc(sizeof(Habilidad));
+    strcpy(enemigo->habilidad->nombre, habilidad->nombre);
+    strcpy(enemigo->habilidad->descripcion,habilidad->descripcion);
+    enemigo->habilidad->modificadorAtaque=habilidad->modificadorAtaque;
+    enemigo->habilidad->modificadorDefensa=habilidad->modificadorDefensa;
+    enemigo->habilidad->modificadorHP=habilidad->modificadorHP;
+    
+
     enemigo->vida = vida;
     enemigo->ataque = ataque;
     enemigo->defensa = defensa;
 }
 
-void aplicar_habilidad(Enemigo *enemigo, Habilidad *habilidad) {
+/* void aplicar_habilidad(Enemigo *enemigo, Habilidad *habilidad) {
     enemigo->habilidad=malloc(sizeof(Habilidad));
     strcpy(enemigo->habilidad->nombre, habilidad->nombre);
     strcpy(enemigo->habilidad->descripcion,habilidad->descripcion);
@@ -20,7 +29,7 @@ void aplicar_habilidad(Enemigo *enemigo, Habilidad *habilidad) {
     enemigo->defensa+=habilidad->modificadorDefensa;
     enemigo->vida+=habilidad->modificadorHP;
 
-}
+} */
 
 
 void print_enemigo( Enemigo *enemigo) {
