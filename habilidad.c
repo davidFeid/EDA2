@@ -6,6 +6,7 @@ void init_habilidad(Habilidad *habilidad,
                     int modificadorAtaque,
                     int modificadorDefensa,
                     int modificadorHP) {
+    
     strcpy(habilidad->nombre, nombre);
     strcpy(habilidad->descripcion, descripcion);
     habilidad->modificadorAtaque = modificadorAtaque;

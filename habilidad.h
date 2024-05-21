@@ -19,6 +19,7 @@ void init_habilidad(Habilidad *habilidad,
                     int modificadorAtaque,
                     int modificadorDefensa,
                     int modificadorHP);
+
 void printHabilidad(Habilidad *habilidad);
 
 void freeHabilidad(Habilidad *habilidad);
