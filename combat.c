@@ -6,6 +6,10 @@
 #include "common.h"
 #include "habilidad.h"
 #include "turno.h"
+#include <time.h>
+#include <stdlib.h>
+
+
 
 void mostrar_habilidades(Habilidad* habilidades_ataque[2], Habilidad* habilidades_defensa[2]) {
     printf("Habilidades disponibles:\n");
@@ -18,7 +22,7 @@ int seleccionar_habilidad() {
     int opcion;
     printf("Elige una habilidad: ");
     scanf("%d", &opcion);
-    return opcion-1;
+    return opcion;
 }
 
 void ataque_normal_personaje(Personaje* atacante, Enemigo* objetivo) {
@@ -60,6 +64,7 @@ void playHumanTurn(Personaje* personaje, Enemigo* enemigo) {
 }
 
 void randomHabilidad_enemigo(Personaje* personaje, Enemigo* enemigo){
+    srand(time(NULL));
     int opcion = rand() % 2;
     if(opcion == 0){
         ataque_normal_enemigo(personaje,enemigo);
