@@ -1,38 +1,16 @@
 #include "personaje.h"
-#include "escena.h"
 #include "enemigo.h"
 #include "opcion.h"
+#include "decision.h"
+#include "escenario.h"
+#include "common.h"
 #include "habilidad.h"
-#include <time.h>
-#include <stdlib.h>
+#include "turno.h"
 
-typedef struct{
-
-} Queue;
-
-int PlayScene(Escena*escena,Personaje*personaje){
-    Opcion* opcion_escogida = decision(escena);
-    Queue*turns = randomTurns(3);
-
-    while(turns->size > 0 && personaje->vida > 0){
-        Enemigo* current_enemigo = (Enemigo*) dequeue(turns);
-        if(combate(personaje,current_enemigo) == 0){
-            printf("Has sido asesinado, tu batalla ha terminado");
-            free(opcion_escogida);
-            free(turns);
-            return 0;   
-        }
-    }
-    printf("Tu sed de sangre interior ha hecho ganar tu batalla");
-    free(opcion_escogida);
-    free(turns);
-    return 1;
-}
-
-void mostrar_habilidades(Habilidad* habilidades) {
+void mostrar_habilidades(Habilidad* habilidades_ataque[2], Habilidad* habilidades_defensa[2]) {
     printf("Habilidades disponibles:\n");
     for (int i = 0; i < 5; i++) {
-        printf("%d. %s\n", i+1, habilidad[i].nombre);
+        printf("%d. %s\n", i+1, habilidades_ataque[i]->nombre,habilidades_defensa[i]->nombre);
     }
 }
 
@@ -40,86 +18,66 @@ int seleccionar_habilidad() {
     int opcion;
     printf("Elige una habilidad: ");
     scanf("%d", &opcion);
-    return opcion;
+    return opcion-1;
 }
 
-void usar_habilidad(Personaje* jugador, Enemigo* enemigo, Habilidad* habilidad) {
-    if (strcmp(habilidad->nombre, "Ataque normal") == 0) {
-        ataque_normal(jugador, enemigo);
-    } else if (strcmp(habilidad->nombre, "Habilidad especial") == 0) {
-        habilidad_especial(jugador, enemigo);
-    }
-}
-
-void ataque_normal(Personaje* atacante, Enemigo* objetivo) {
+void ataque_normal_personaje(Personaje* atacante, Enemigo* objetivo) {
     printf("¡El ataque normal golpea al enemigo!\n");
-    objetivo->vida -= atacante->fuerza;
+    objetivo->vida -= atacante->ataque;
+    printf("Al enemigo le queda %d\n",objetivo->vida,"de vida");
 }
 
-void habilidad_especial(Personaje* atacante, Enemigo* objetivo) {
+void habilidad_ataque_personaje(Personaje* atacante, Enemigo* objetivo, int indicehabilidad) {
     printf("¡El jugador utiliza su habilidad especial!\n");
-    objetivo->vida -= atacante->fuerza * 2;
+    objetivo->vida -= atacante->habilidadesAtaque->modificadordevida;
+    printf("Al enemigo le queda %d\n",objetivo->vida,"de vida");
+}
+void habilidad_defensa_personaje(Personaje* atacante, Enemigo* objetivo, int indicehabilidad) {
+    printf("¡El jugador utiliza su habilidad especial!\n");
+    objetivo->ataque -= atacante->habilidadesDefensa->modificadordeataque;
+    printf("Al enemigo le queda %d\n",objetivo->vida,"de vida");
 }
 
 void playHumanTurn(Personaje* personaje, Enemigo* enemigo) {
     printf("Es tu turno. Elige una acción:\n");
-    // poner lo que ataca
-    mostrar_habilidades();
-    seleccionar_habilidad();
-    Habilidad habilidad_elegida = habilidad[i];
-    usar_habilidad(personaje,enemigo,&habilidad_elegida);
-    enemigo->vida -= personaje->fuerza;
+    mostrar_habilidades(personaje->habilidadesAtaque,personaje->habilidadesDefensa);
+    int opcion = seleccionar_habilidad();
+
+    switch (opcion){
+        case 1:
+            ataque_normal_personaje(personaje,enemigo);
+            break;
+        case 2:
+            habilidad_ataque_personaje(personaje,enemigo,opcion-1);
+            break;
+        case 3:
+            habilidad_defensa_personaje(personaje,enemigo,opcion-2);
+            break;
+        default:
+            printf("Opcion no válida!, acabas de perder tu turno");
+            break;
+    }
 }
 
+void randomHabilidad_enemigo(Personaje* personaje, Enemigo* enemigo){
+    int opcion = rand() % 2;
+    if(opcion == 0){
+        ataque_normal_enemigo(enemigo,personaje);
+    }else{
+        habilidad_ataque_enemigo(enemigo,personaje);
+    }
+}
+void ataque_normal_enemigo(Personaje*atacante, Enemigo*objetivo) {
+    printf("¡El enemigo te golpea con un ataque normal!\n");
+    atacante->vida -= objetivo->ataque;
+    printf("Te queda %d\n",atacante->vida,"de vida");
+}
+
+void habilidad_ataque_enemigo(Personaje* atacante, Enemigo* objetivo){
+    printf("¡El enemigo utiliza su habilidad especial!\n");
+    atacante->vida -= objetivo->habilidadesAtaque->modificadordevida;
+    printf("Al enemigo le queda %d\n",objetivo->vida,"de vida");
+}
 void playMachineTurn(Personaje* personaje, Enemigo* enemigo) {
     printf("Es el turno del enemigo.\n");
-    randomHabilidad();
-    // poner los ataques del enemigo 
-    personaje->vida -= enemigo->fuerza;
-}
-
-// falta la funcion de colas aleatorias
-
-//Habilidadenemigo* randomHabilidad(Enemigo* enemigo) {
-    Habilidadenemigo* habilidad = (Habilidad*) malloc(sizeof(Habilidad));
-    srand(time(NULL));  
-    int r = rand(habilidad);
-
-    // Aquí podrías implementar la lógica para seleccionar una habilidad aleatoria del enemigo
-    // Por ahora, simplemente devolvemos una habilidad nula
-    return habilidad;
-}
-
-// falta la funcion de habilidades para el enemigo
-
-int combate(Personaje*personaje, Enemgio*enemigo){
-    int cont = 0;
-    int N = 0;
-
-    while (personaje->vida > 0 && enemigo->vida > 0){
-        playHumanTurn(personaje,enemigo);
-        if (enemigo->vida <= 0){
-            printf("Has derrotado al enemigo");
-            return 1;
-        }
-        playMachineTurn(personaje,enemigo);
-        if(personaje->vida <= 0){
-            printf("El enemigo te ha derrotado");
-            return 0;
-        }
-    }
-    return 1;
-}
-
-int main() {
-    Escena escena;
-    combate(personaje,enemigo);
-
-    if (playScene(&escena, &personaje)) {
-        printf("Has superado esta escena sin derramar sangre\n");
-    } else {
-        printf("No has podido completar la escena...\n");
-    }
-
-    return 0;
-}
+    randomHabilidad(personaje,enemigo);
