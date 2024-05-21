@@ -1,9 +1,12 @@
 #include "decision.h"
 
-void init_decision(Decision *decision, char *texto_pregunta, Opcion *opciones, int num_opciones) {
+void init_decision(Decision *decision, char *texto_pregunta, Opcion *opciones[], int num_opciones) {
     // Copiar los valores pasados como argumentos a la estructura decision
     strcpy(decision->texto_pregunta, texto_pregunta);
-    decision->opciones = opciones;
+    decision->opciones = malloc(num_opciones * sizeof(Opcion *));
+    for (int i = 0; i < num_opciones; i++) {
+        decision->opciones[i] = opciones[i];
+    }
     decision->num_opciones = num_opciones;
 }
 
@@ -13,7 +16,7 @@ void print_decision(Decision *decision) {
     printf("Opciones:\n");
     for (int i = 0; i < decision->num_opciones; i++) {
         printf("  Opción %d:\n", i+1);
-        print_opcion(&decision->opciones[i]);
+        print_opcion(decision->opciones[i]);
     }
 }
 
