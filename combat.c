@@ -9,8 +9,6 @@
 #include <time.h>
 #include <stdlib.h>
 
-
-
 void mostrar_habilidades(Habilidad* habilidades_ataque[2], Habilidad* habilidades_defensa[2]) {
     printf("Habilidades disponibles:\n");
     for (int i = 0; i < 5; i++) {
