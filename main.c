@@ -82,37 +82,37 @@ void inicializar_opcion(Enemigo *enemigos[][2]){
     //print_enemigo(enemigos[0][1]);
     
     Opcion *opcion1_1=malloc(sizeof(Opcion));  
-    init_opcion(opcion1_1, "Luchar", "Te encuentras con un enemigo poderoso:", enemigos[0], 2, "Has derrotado al enemigo.");
+    init_opcion(opcion1_1, "Luchar", "Te encuentras con un fantasma1 poderoso:", enemigos[0], 2, "Has derrotado al fantasma1.");
 
     Opcion *opcion1_2=malloc(sizeof(Opcion));  
-    init_opcion(opcion1_2, "Luchar", "Te encuentras con un enemigo poderoso:", enemigos[1], 1, "Has derrotado al enemigo.");
+    init_opcion(opcion1_2, "Luchar", "Te encuentras con un fantasma1 poderoso:", enemigos[1], 1, "Has derrotado al fantasma1.");
 
     Opcion *opcion1_3=malloc(sizeof(Opcion)); 
-    init_opcion(opcion1_3,"Luchar","No te has encontrado con ningún enemigo",NULL,0,"Consigues llegar al bosque sin pelear con nadie");
+    init_opcion(opcion1_3,"Luchar","No te has encontrado con ningún fantasma1",NULL,0,"Consigues llegar al bosque sin pelear con nadie");
 
     Opcion *opcion2_1=malloc(sizeof(Opcion));  
-    init_opcion(opcion2_1, "Luchar", "Te encuentras con un enemigo poderoso:", enemigos[2], 2, "Has derrotado al enemigo.");
+    init_opcion(opcion2_1, "Luchar", "Te encuentras con un fantasma1 poderoso:", enemigos[2], 2, "Has derrotado al fantasma1.");
 
     Opcion *opcion2_2=malloc(sizeof(Opcion));  
-    init_opcion(opcion2_2,"Luchar","No te has encontrado con ningún enemigo",NULL,0,"Consigues llegar al lago sin pelear con nadie");
+    init_opcion(opcion2_2,"Luchar","No te has encontrado con ningún fantasma1",NULL,0,"Consigues llegar al lago sin pelear con nadie");
 
     Opcion *opcion2_3=malloc(sizeof(Opcion));  
-    init_opcion(opcion2_2,"Luchar","No te has encontrado con ningún enemigo",NULL,0,"Consigues llegar al lago sin pelear con nadie");
+    init_opcion(opcion2_2,"Luchar","No te has encontrado con ningún fantasma1",NULL,0,"Consigues llegar al lago sin pelear con nadie");
 
     Opcion *opcion3_1=malloc(sizeof(Opcion));  
-    init_opcion(opcion3_1, "Luchar", "Te encuentras con un enemigo poderoso:", enemigos[3], 2, "Has derrotado al enemigo.");
+    init_opcion(opcion3_1, "Luchar", "Te encuentras con un fantasma1 poderoso:", enemigos[3], 2, "Has derrotado al fantasma1.");
     
     Opcion *opcion3_2=malloc(sizeof(Opcion));  
-    init_opcion(opcion3_2, "Luchar", "Te encuentras con un enemigo poderoso:", enemigos[4], 1, "Has derrotado al enemigo.");
+    init_opcion(opcion3_2, "Luchar", "Te encuentras con un fantasma1 poderoso:", enemigos[4], 1, "Has derrotado al fantasma1.");
 
     Opcion *opcion3_3=malloc(sizeof(Opcion)); 
-    init_opcion(opcion3_3,"Luchar","No te has encontrado con ningún enemigo",NULL,0,"Consigues llegar al lago sin pelear con nadie");
+    init_opcion(opcion3_3,"Luchar","No te has encontrado con ningún fantasma1",NULL,0,"Consigues llegar al lago sin pelear con nadie");
 
     Opcion *opcion4_1=malloc(sizeof(Opcion));  
-    init_opcion(opcion4_1, "Luchar", "Te encuentras con un enemigo poderoso:", enemigos[5], 2, "Has derrotado al boss final.");
+    init_opcion(opcion4_1, "Luchar", "Te encuentras con un fantasma1 poderoso:", enemigos[5], 2, "Has derrotado al boss final.");
 
     Opcion *opcion4_2=malloc(sizeof(Opcion)); 
-    init_opcion(opcion4_2, "Luchar", "Te encuentras con un enemigo poderoso:", enemigos[6], 1, "Has derrotado al boss final.");
+    init_opcion(opcion4_2, "Luchar", "Te encuentras con un fantasma1 poderoso:", enemigos[6], 1, "Has derrotado al boss final.");
     
     //print_opcion(&opcion1_1);
     Opcion *opciones[][3] = {{opcion1_1,opcion1_2,opcion1_3},{opcion2_1,opcion2_2,opcion2_3},{opcion3_1,opcion3_2,opcion3_3},{opcion4_1,opcion4_2}};
@@ -151,7 +151,7 @@ void inicializar_escenario(Decision *decisiones[]){
     init_escenario(escenario1, "Escenario 1", "Acabas de aparecer en medio del cementerio de KINGSLAND, la ciudad que salvaste en el pasado, y desconcertado, no acabas de reconocer todo el terreno que te rodea. El aire es crudo y puedes sentir un aire de temor y oscuridad por las tierras que antes te pertenecian. Ante la sensación de inseguridad, ràpidamente, coges la espada que esta clavada en tu tumba, col·locada por “alguien” quien parece que pensaba que algun dia volverias al mundo real. Observas que se te acercan unos fantasmas de no muy buena espina, asi que podrías tomar diferentes caminos para salir de aquí. Recuerdas que si cogias el camino derecho, llegabas hacia la casa del viejo herrero, llamado “RUFF”, con el cuál tenias una buena amistad. Este podria ayudarte a resolver tus dudas y él porque has vuelto al mundo real. Por otra parte, en el camino izquierdo contemplas un cofre brillante que podria contener ciertos elementos curativos, de subida de defensa, mejora de ataques…Estos 2 caminos nombrados tienen una alta probabilidad de encontrarse con enemigos, en cambio, si decides tirar recto por el camino central, llegarías al bosque más rápidamente escapando de todo posible enfrentamiento", &decisiones[0], 1);
 
     Escenario *escenario2=malloc(sizeof(Escenario));
-    init_escenario(escenario2, "Escenario 2", "Despúes de una larga caminata, llegas por fin al bosque oscuro de KINGSLAND. El bosque está tan arboleado que es imposible ver lo que hay detrás de cada árbol, todo parece un sitio sin salida. En la entrada de este, te encuentras unos carteles que te indican 3 caminos por los cúales poder avanzar. Solo oyes gritos de desesperación, espadas chocándose y el sondio del viento zarandeando las hojas que componen el gran bosque. El cartel del medio te dice que si sigues hacia adelante te encontrarás con el elfo supremo, el cuál te puede hacer conseguir una gran recompensa si es derrotado. El cartel de la izquierda, te dice que puedes coger este camino el cuál es el más rápido para llegar al lago, escapando de todo enemigo posible. Por la otra banda, el cartel derecho te informa de que una tienda te encontrarás en el caso de que este camino cojas, pudiendo lootear asi antes de pasar a la siguiente zona", &decisiones[1], 1);
+    init_escenario(escenario2, "Escenario 2", "Despúes de una larga caminata, llegas por fin al bosque oscuro de KINGSLAND. El bosque está tan arboleado que es imposible ver lo que hay detrás de cada árbol, todo parece un sitio sin salida. En la entrada de este, te encuentras unos carteles que te indican 3 caminos por los cúales poder avanzar. Solo oyes gritos de desesperación, espadas chocándose y el sondio del viento zarandeando las hojas que componen el gran bosque. El cartel del medio te dice que si sigues hacia adelante te encontrarás con el elfo supremo, el cuál te puede hacer conseguir una gran recompensa si es derrotado. El cartel de la izquierda, te dice que puedes coger este camino el cuál es el más rápido para llegar al lago, escapando de todo fantasma1 posible. Por la otra banda, el cartel derecho te informa de que una tienda te encontrarás en el caso de que este camino cojas, pudiendo lootear asi antes de pasar a la siguiente zona", &decisiones[1], 1);
 
     Escenario *escenario3=malloc(sizeof(Escenario));
     init_escenario(escenario3,"Escenario 3", "Ya superado el bosque, te encuentras con el gran sonido pacífico del lago. Toda maldad que hayas podido encontrar en las zonas anteriores se desvanece ante el gran paisaje que el lago magistral te hace contemplar. Los caminos están todos destrozados y ves a lo lejos diferentes tipos de animales marítimos humanizados, así como grandes tortugas. Estas, se encuentran en el camino del medio, específicamente 2, esperándote a que pases por ahí para intentar quitarte todo lo que tienes. Por la izquierda contemplas aparantemente un camino vacío y sin enemigos, aunque parece que ciertas batallas han sucedido alli hace poco. El camino derecho está en sus últimas condiciones, el peor de todos, pero al final de este puedes contemplar un pequeño castillo abandonado en el cuál podrias coger ciertas cosas antes de partir",&decisiones[2],1);
@@ -163,6 +163,33 @@ void inicializar_escenario(Decision *decisiones[]){
     // Imprimir el escenario
     //printf("85555\n");
     print_escenario(escenario1);
+}
+
+void inicializar_turnos(ColaTurnos *cola) {
+    srand(time(NULL));
+    for (int i = 0; i < NUM_TURNOS; i++) {
+        if (rand() % 2 == 0) {
+            encolar_turno(cola, JUGADOR);
+        } else {
+            encolar_turno(cola, ENEMIGO);
+        }
+    }
+}
+
+// PRUEBAAAAAAAAAAAAAA
+
+void accion_jugador(Personaje *personaje, Enemigo *fantasma1) {
+    printf("%s ataca a %s\n", personaje->nombre, fantasma1->nombre);
+    fantasma1->vida -= personaje->ataque - fantasma1->defensa;
+    if (fantasma1->vida < 0) fantasma1->vida = 0;
+    printf("%s ahora tiene %d puntos de vida\n", fantasma1->nombre, fantasma1->vida);
+}
+
+void accion_enemigo(Enemigo *fantasma1, Personaje *personaje) {
+    printf("%s ataca a %s\n", fantasma1->nombre, personaje->nombre);
+    personaje->vida -= fantasma1->ataque - personaje->defensa;
+    if (personaje->vida < 0) personaje->vida = 0;
+    printf("%s ahora tiene %d puntos de vida\n", personaje->nombre, personaje->vida);
 }
 
 int main() {
@@ -183,11 +210,47 @@ int main() {
     init_personaje(&miPersonaje, habilidadesAtaque, 4, habilidadesDefensa, 4);  
 
     // Mostrar los datos del personaje configurado
-    printf("\nPensonaje: \n");
+    /* printf("\nPensonaje: \n");
     print_personaje(&miPersonaje);
     printf("----------------------------------------------------\n");
     printf("\nEscenario:\n");
-    inicializar_habilidades();
+    inicializar_habilidades(); */
+
+    Habilidad *ataquesusto=malloc(sizeof(Habilidad));
+    init_habilidad(ataquesusto,"ataque susto","Los fantasmas desaparacen para asustarte y quitarte vida y puntos de defensa ",0,10,10);
+
+    Enemigo *fantasma1 = malloc(sizeof(Enemigo));
+    init_enemigo(fantasma1, "Fantasma de soldado", 100, 50, 20,ataquesusto);
+
+    ColaTurnos *cola=malloc(sizeof(ColaTurnos));
+    init_cola_turnos(cola);
+    inicializar_turnos(cola);
+
+    printf("Iniciando combate:\n");
+    printf("Jugador: %s, Vida: %d\n", miPersonaje.nombre, miPersonaje.vida);
+    printf("Enemigo: %s, Vida: %d\n", fantasma1->nombre, fantasma1->vida);
+
+    while (!is_empty(cola) && miPersonaje.vida > 0 && fantasma1->vida > 0) {
+        TipoTurno tipo = desencolar_turno(cola);
+        if (tipo == JUGADOR) {
+            printf("\nTurno del personaje:\n");
+            accion_jugador(&miPersonaje, fantasma1);
+        } else {
+            printf("\nTurno del fantasma1:\n");
+            accion_enemigo(fantasma1, &miPersonaje);
+        }
+    }
+
+    if (miPersonaje.vida > 0 && fantasma1->vida == 0) {
+        printf("\n¡El personaje ha ganado!\n");
+    } else if (fantasma1->vida > 0 && miPersonaje.vida == 0) {
+        printf("\n¡El fantasma1 ha ganado!\n");
+    } else {
+        printf("\n¡La batalla ha terminado en empate!\n");
+    }
+
+    liberar_cola_turnos(cola);
+
     return 0;
 }
 
