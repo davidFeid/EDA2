@@ -62,9 +62,9 @@ void playHumanTurn(Personaje* personaje, Enemigo* enemigo) {
 void randomHabilidad_enemigo(Personaje* personaje, Enemigo* enemigo){
     int opcion = rand() % 2;
     if(opcion == 0){
-        ataque_normal_enemigo(enemigo,personaje);
+        ataque_normal_enemigo(personaje,enemigo);
     }else{
-        habilidad_ataque_enemigo(enemigo,personaje);
+        habilidad_ataque_enemigo(personaje,enemigo);
     }
 }
 void ataque_normal_enemigo(Personaje*atacante, Enemigo*objetivo) {
@@ -76,8 +76,9 @@ void ataque_normal_enemigo(Personaje*atacante, Enemigo*objetivo) {
 void habilidad_ataque_enemigo(Personaje* atacante, Enemigo* objetivo){
     printf("¡El enemigo utiliza su habilidad especial!\n");
     atacante->vida -= objetivo->habilidadesAtaque->modificadordevida;
-    printf("Al enemigo le queda %d\n",objetivo->vida,"de vida");
+    printf("Te queda %d\n",atacante->vida,"de vida");
 }
 void playMachineTurn(Personaje* personaje, Enemigo* enemigo) {
     printf("Es el turno del enemigo.\n");
-    randomHabilidad(personaje,enemigo);
+    randomHabilidad_enemigo(personaje,enemigo);
+}
