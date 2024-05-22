@@ -8,10 +8,12 @@ typedef struct{
     int vida;
     int ataque;
     int defensa;
-    Habilidad *habilidad; 
+    Habilidad **habilidades; 
+    int num_habilidades;
+
 } Enemigo;
 
-void init_enemigo(Enemigo *enemigo,  char *nombre, int vida, int ataque, int defensa,Habilidad *habilidad) ;
+void init_enemigo(Enemigo *enemigo,  char *nombre, int vida, int ataque, int defensa,Habilidad *habilidades[],int num_habilidades) ;
 
 /* void aplicar_habilidad(Enemigo *enemigo, Habilidad *habilidad); */
 
