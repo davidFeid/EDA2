@@ -3,6 +3,7 @@
 #include "main.h"
 #include "main.c"
 
+
 void mostrar_habilidades(Habilidad* habilidades_ataque[2], Habilidad* habilidades_defensa[2]) {
     printf("Habilidades disponibles:\n");
     printf("1. Ataque normal\n");
@@ -19,7 +20,7 @@ int seleccionar_habilidad() {
     int opcion;
     printf("Elige una habilidad: ");
     scanf("%d", &opcion);
-    return opcion;
+    return opcion - 1;
 }
 
 void ataque_normal_personaje(Personaje* atacante, Enemigo* objetivo) {
@@ -29,13 +30,15 @@ void ataque_normal_personaje(Personaje* atacante, Enemigo* objetivo) {
 }
 
 void habilidad_ataque_personaje(Personaje* atacante, Enemigo* objetivo, int indicehabilidad) {
-    printf("¡El jugador utiliza su habilidad especial!\n",atacante->habilidadesAtaque[indicehabilidad]->nombre);
-    objetivo->vida -= atacante->habilidadesAtaque[indicehabilidad]->modificadorHP;
+    Habilidad* habilidad = atacante->habilidadesAtaque[indicehabilidad];
+    printf("¡El jugador utiliza su habilidad especial!\n", habilidad->nombre);
+    objetivo->vida -= habilidad->modificadorHP;
     printf("Al enemigo le queda %d\n de vida",objetivo->vida);
 }
 void habilidad_defensa_personaje(Personaje* atacante, Enemigo* objetivo, int indicehabilidad) {
-    printf("¡El jugador utiliza su habilidad especial!\n",atacante->habilidadesDefensa[indicehabilidad]->nombre);
-    objetivo->ataque -= atacante->habilidadesDefensa[indicehabilidad]->modificadorAtaque;
+    Habilidad* habilidad = atacante->habilidadesDefensa[indicehabilidad];
+    printf("¡El jugador utiliza su habilidad especial!\n");
+    objetivo->ataque -= habilidad->modificadorAtaque;
     printf("Al enemigo le queda %d\n de vida",objetivo->vida);
 }
 
@@ -75,9 +78,10 @@ void ataque_normal_enemigo(Personaje*atacante, Enemigo*objetivo) {
     printf("Te queda %d\n de vida",atacante->vida);
 }
 
-void habilidad_ataque_enemigo(Personaje* atacante, Enemigo* objetivo, int indicehabilidad){
-    printf("¡El enemigo utiliza su habilidad especial!\n",objetivo->habilidades[indicehabilidad]->nombre);
-    atacante->vida -= objetivo->habilidades[indicehabilidad]->modificadorHP;
+void habilidad_ataque_enemigo(Personaje* atacante, Enemigo* objetivo){
+    Habilidad* habilidad;
+    printf("¡El enemigo utiliza su habilidad especial!\n");
+    atacante->vida -= habilidad->modificadorHP
     printf("Te queda %d\n de vida",atacante->vida);
 }
 void accion_enemigo(Enemigo* enemigo,Personaje* personaje) {
