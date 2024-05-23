@@ -1,4 +1,5 @@
 #include "main.h"
+
 void inicializar_habilidades(){
     Habilidad *ataquesusto=malloc(sizeof(Habilidad));
     init_habilidad(ataquesusto,"ataque susto","Los fantasmas desaparacen para asustarte y quitarte vida y puntos de defensa ",0,10,10);
@@ -178,7 +179,7 @@ void inicializar_turnos(ColaTurnos *cola) {
 
 // PRUEBAAAAAAAAAAAAAA
 
-void accion_jugador(Personaje *personaje, Enemigo *fantasma1) {
+/* void accion_jugador(Personaje *personaje, Enemigo *fantasma1) {
     printf("%s ataca a %s\n", personaje->nombre, fantasma1->nombre);
     fantasma1->vida -= personaje->ataque - fantasma1->defensa;
     if (fantasma1->vida < 0) fantasma1->vida = 0;
@@ -190,7 +191,7 @@ void accion_enemigo(Enemigo *fantasma1, Personaje *personaje) {
     personaje->vida -= fantasma1->ataque - personaje->defensa;
     if (personaje->vida < 0) personaje->vida = 0;
     printf("%s ahora tiene %d puntos de vida\n", personaje->nombre, personaje->vida);
-}
+} */
 
 int main() {
     // Crear una instancia de la estructura Personaje

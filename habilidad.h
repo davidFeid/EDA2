@@ -13,13 +13,12 @@ typedef struct  {
 
 //Funciones
 
-void init_habilidad(Habilidad *habilidad){
+void init_habilidad(Habilidad *habilidad,
                     char *nombre,
                     char *descripcion,
                     int modificadorAtaque,
                     int modificadorDefensa,
-                    int modificadorHP,
-}
+                    int modificadorHP);
 void printHabilidad(Habilidad *habilidad);
 
 void freeHabilidad(Habilidad *habilidad);

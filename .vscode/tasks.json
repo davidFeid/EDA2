@@ -16,6 +16,7 @@
                 "${fileDirname}\\escenario.c",
                 "${fileDirname}\\habilidad.c",
                 "${fileDirname}\\turno.c",
+                "${fileDirname}\\combat.c",
                 "${fileDirname}\\main.c",
                 "-o",
                 "${fileDirname}\\main.exe"

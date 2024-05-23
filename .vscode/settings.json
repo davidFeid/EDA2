@@ -1,4 +1,4 @@
-{
+/* {
     "files.associations": {
         "main.h": "c",
         "opcion.h": "c",
@@ -8,4 +8,4 @@
         "assert.h": "c",
         "stdio.h": "c"
     }
-}
+} */
