@@ -259,6 +259,8 @@ int main() {
     init_cola_turnos(cola);
     inicializar_turnos(cola);
 
+    #include "main.h"
+    
     printf("Iniciando combate:\n");
     printf("Jugador: %s, Vida: %d\n", miPersonaje.nombre, miPersonaje.vida);
     printf("Enemigo: %s, Vida: %d\n", fantasma1->nombre, fantasma1->vida);

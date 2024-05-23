@@ -10,8 +10,8 @@ typedef struct{
     int vida;
     int ataque;
     int defensa;
-    Habilidad *habilidadesAtaque[2];
-    Habilidad *habilidadesDefensa[2];
+    Habilidad* habilidadesAtaque[2];
+    Habilidad* habilidadesDefensa[2];
 }Personaje;
 
 void init_personaje(Personaje *personaje, Habilidad *habilidadesAtaque, int numHabilidadesAtaque, Habilidad *habilidadesDefensa, int numHabilidadesDefensa);

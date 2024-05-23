@@ -1,5 +1,7 @@
 #include "combat.h"
 #include "tiempo.h"
+#include "main.h"
+#include "main.c"
 
 void mostrar_habilidades(Habilidad* habilidades_ataque[2], Habilidad* habilidades_defensa[2]) {
     printf("Habilidades disponibles:\n");
@@ -27,13 +29,13 @@ void ataque_normal_personaje(Personaje* atacante, Enemigo* objetivo) {
 }
 
 void habilidad_ataque_personaje(Personaje* atacante, Enemigo* objetivo, int indicehabilidad) {
-    printf("¡El jugador utiliza su habilidad especial!\n");
-    //objetivo->vida -= atacante->habilidadesAtaque->modificadordevida;
+    printf("¡El jugador utiliza su habilidad especial!\n",atacante->habilidadesAtaque[indicehabilidad]->nombre);
+    objetivo->vida -= atacante->habilidadesAtaque[indicehabilidad]->modificadorHP;
     printf("Al enemigo le queda %d\n de vida",objetivo->vida);
 }
 void habilidad_defensa_personaje(Personaje* atacante, Enemigo* objetivo, int indicehabilidad) {
-    printf("¡El jugador utiliza su habilidad especial!\n");
-    //objetivo->ataque -= atacante->habilidadesDefensa->modificadordeataque;
+    printf("¡El jugador utiliza su habilidad especial!\n",atacante->habilidadesDefensa[indicehabilidad]->nombre);
+    objetivo->ataque -= atacante->habilidadesDefensa[indicehabilidad]->modificadorAtaque;
     printf("Al enemigo le queda %d\n de vida",objetivo->vida);
 }
 
@@ -73,9 +75,9 @@ void ataque_normal_enemigo(Personaje*atacante, Enemigo*objetivo) {
     printf("Te queda %d\n de vida",atacante->vida);
 }
 
-void habilidad_ataque_enemigo(Personaje* atacante, Enemigo* objetivo){
-    printf("¡El enemigo utiliza su habilidad especial!\n");
-    //atacante->vida -= objetivo->habilidadesAtaque->modificadordevida;
+void habilidad_ataque_enemigo(Personaje* atacante, Enemigo* objetivo, int indicehabilidad){
+    printf("¡El enemigo utiliza su habilidad especial!\n",objetivo->habilidades[indicehabilidad]->nombre);
+    atacante->vida -= objetivo->habilidades[indicehabilidad]->modificadorHP;
     printf("Te queda %d\n de vida",atacante->vida);
 }
 void accion_enemigo(Enemigo* enemigo,Personaje* personaje) {

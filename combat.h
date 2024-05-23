@@ -26,7 +26,7 @@ void randomHabilidad_enemigo(Personaje* personaje, Enemigo* enemigo);
 
 void ataque_normal_enemigo(Personaje*atacante, Enemigo*objetivo);
 
-void habilidad_ataque_enemigo(Personaje* atacante, Enemigo* objetivo);
+void habilidad_ataque_enemigo(Personaje* atacante, Enemigo* objetivo, int indicehabilidad);
 
 void playMachineTurn(Personaje* personaje, Enemigo* enemigo);
 
