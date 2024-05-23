@@ -81,7 +81,7 @@ void ataque_normal_enemigo(Personaje*atacante, Enemigo*objetivo) {
 void habilidad_ataque_enemigo(Personaje* atacante, Enemigo* objetivo){
     Habilidad* habilidad;
     printf("¡El enemigo utiliza su habilidad especial!\n");
-    atacante->vida -= habilidad->modificadorHP
+    atacante->vida -= habilidad->modificadorHP;
     printf("Te queda %d\n de vida",atacante->vida);
 }
 void accion_enemigo(Enemigo* enemigo,Personaje* personaje) {
