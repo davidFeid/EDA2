@@ -12,22 +12,11 @@ void inicializar_habilidades(){
     Habilidad *mordisco = malloc(sizeof(Habilidad));
     init_habilidad(mordisco, "mordisco", "El cofre se abre y te muerde para romper tus protecciones", 0, 15, 0);
 
-    Habilidad *defensadura = malloc(sizeof(Habilidad));
-    init_habilidad(defensadura, "defensa dura", "El cofre se cierra herméticamente, aumentando su defensa", 20, 0, 0);
+    Habilidad *lanzamientocuchillos=malloc(sizeof(Habilidad));
+    init_habilidad(lanzamientocuchillos,"lanzamiento de cuchillos","El elfo subordinado saca un manojo de cuchillos y te los lanza,estos te inmobilizaran los braozos ",10,0,10);
 
-    // Elfo Subordinado
-    Habilidad *lanzamientocuchillos = malloc(sizeof(Habilidad));
-    init_habilidad(lanzamientocuchillos, "lanzamiento de cuchillos", "El elfo subordinado saca un manojo de cuchillos y te los lanza, estos te inmovilizan los brazos y te costara mas atacar", 15, 0, 5);
-
-    Habilidad *esquivarapido = malloc(sizeof(Habilidad));
-    init_habilidad(esquivarapido, "esquiva rápida", "El elfo subordinado esquiva rápidamente los ataques", 20, 0, 0);
-
-    // Elfo Supremo
-    Habilidad *mazazo = malloc(sizeof(Habilidad));
-    init_habilidad(mazazo, "mazazo", "El elfo supremo saca una maza que tenía guardada en la cabeza y te golpea en la cabeza con ella", 0, 10, 20);
-
-    Habilidad *armaduramagica = malloc(sizeof(Habilidad));
-    init_habilidad(armaduramagica, "armadura mágica", "El elfo supremo invoca una armadura mágica que reduce el daño recibido", 15, 0, 0);
+    Habilidad *mazazo=malloc(sizeof(Habilidad));
+    init_habilidad(mazazo,"mazazo","El elfo supremo saca una maza que tenia guardada en la cabeza y te golpea en la cabeza con ella ",0,0,25);
 
     // Tortuguita
     Habilidad *ataqueacuatico = malloc(sizeof(Habilidad));
@@ -63,14 +52,14 @@ void inicializar_habilidades(){
     Habilidad *escudoinfernal = malloc(sizeof(Habilidad));
     init_habilidad(escudoinfernal, "escudo infernal", "El Blaze crea una bola de fuego gigante y se mete en ella que reduce el daño recibido y quema a los atacantes", 30, 10, 0);
 
-    Habilidad *habilidades[][4]={{ataquesusto,proteccioneterea},{mordisco,defensadura},{lanzamientocuchillos,esquivarapido},{mazazo,armaduramagica},{ataqueacuatico,caparazonreforzado},{golpepesado,caparazoneterno},{llamaradas,escudoflamigero},{bloqueatomico,pareddefuego,tormentadefuego,escudoinfernal}};
+    Habilidad *habilidades[]={ataquesusto,mordisco,lanzamientocuchillos,mazazo,ataqueacuatico,caparazoneterno,llamaradas,bloqueatomico};
     inicializar_enemigos(habilidades);   
 
 }
 void inicializar_enemigos(Habilidad *habilidades[][4]){
     //Enemigo fantasma;
     Enemigo *fantasma1 = malloc(sizeof(Enemigo));
-    init_enemigo(fantasma1, "Fantasma de soldado", 100, 50, 20,habilidades[0],2);
+    init_enemigo(fantasma1, "Fantasma de soldado", 100, 50, 20,habilidades[0]);
     /* aplicar_habilidad(fantasma1,habilidades[0]); */
 
     Enemigo *fantasma2 = malloc(sizeof(Enemigo));
@@ -254,13 +243,7 @@ int main() {
     printf("----------------------------------------------------\n");
     printf("\nEscenario:\n");
     inicializar_habilidades(); */
-
-    Habilidad *ataquesusto=malloc(sizeof(Habilidad));
-    init_habilidad(ataquesusto,"ataque susto","Los fantasmas desaparacen para asustarte y quitarte vida y puntos de defensa ",0,10,10);
-
-    Enemigo *fantasma1 = malloc(sizeof(Enemigo));
-    init_enemigo(fantasma1, "Fantasma de soldado", 100, 50, 20,ataquesusto);
-
+    
     ColaTurnos *cola=malloc(sizeof(ColaTurnos));
     init_cola_turnos(cola);
     inicializar_turnos(cola);
