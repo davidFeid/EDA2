@@ -1,4 +1,5 @@
 #include "combat.h"
+#include "tiempo.h"
 
 void mostrar_habilidades(Habilidad* habilidades_ataque[2], Habilidad* habilidades_defensa[2]) {
     printf("Habilidades disponibles:\n");
