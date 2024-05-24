@@ -29,14 +29,13 @@ void ataque_normal_personaje(Personaje* atacante, Enemigo* objetivo) {
     printf("Al enemigo le queda %d\n de vida",objetivo->vida);
 }
 
-void habilidad_ataque_personaje(Personaje* atacante, Enemigo* objetivo, int indicehabilidad) {
-    Habilidad* habilidad = atacante->habilidadesAtaque[indicehabilidad];
-    printf("¡El jugador utiliza su habilidad especial!\n", habilidad->nombre);
-    objetivo->vida -= habilidad->modificadorHP;
+void habilidad_ataque_personaje(Personaje* atacante, Enemigo* objetivo, int i) {
+    printf("¡El jugador utiliza su habilidad especial!\n",habilidadesAtaque->nombre);
+    objetivo->vida -= atacante->habilidadesAtaque[i]->modificadorHP;    
     printf("Al enemigo le queda %d\n de vida",objetivo->vida);
 }
-void habilidad_defensa_personaje(Personaje* atacante, Enemigo* objetivo, int indicehabilidad) {
-    Habilidad* habilidad = atacante->habilidadesDefensa[indicehabilidad];
+void habilidad_defensa_personaje(Personaje* atacante, Enemigo* objetivo, int i) {
+    Habilidad* habilidad = atacante->habilidadesDefensa[i];
     printf("¡El jugador utiliza su habilidad especial!\n");
     objetivo->ataque -= habilidad->modificadorAtaque;
     printf("Al enemigo le queda %d\n de vida",objetivo->vida);
@@ -78,13 +77,14 @@ void ataque_normal_enemigo(Personaje*atacante, Enemigo*objetivo) {
     printf("Te queda %d\n de vida",atacante->vida);
 }
 
-/* void habilidad_ataque_enemigo(Personaje* atacante, Enemigo* objetivo){
+void habilidad_ataque_enemigo(Personaje* atacante, Enemigo* objetivo){
     Habilidad* habilidad;
     printf("¡El enemigo utiliza su habilidad especial!\n");
     //atacante->vida -= habilidad->modificadorHP;
     printf("Te queda %d\n de vida",atacante->vida);
-} */
-void accion_enemigo(Enemigo* enemigo,Personaje* personaje) {
+} 
+
+void accion_enemigo(Enemigo* enemigo,Personaje* personaje){
     printf("Es el turno del enemigo.\n");
     randomHabilidad_enemigo(personaje,enemigo);
 }

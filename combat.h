@@ -30,4 +30,8 @@ void habilidad_ataque_enemigo(Personaje* atacante, Enemigo* objetivo);
 
 void playMachineTurn(Personaje* personaje, Enemigo* enemigo);
 
+void accion_jugador(Personaje*personaje,Enemigo*enemigo);
+
+void accion_enemigo(Enemigo* enemigo,Personaje* personaje);
+
 #endif
