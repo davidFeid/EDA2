@@ -1,7 +1,5 @@
 #include "combat.h"
 #include "tiempo.h"
-#include "main.h"
-#include "main.c"
 
 
 void mostrar_habilidades(Habilidad* habilidades_ataque[2], Habilidad* habilidades_defensa[2]) {
@@ -29,6 +27,7 @@ void ataque_normal_personaje(Personaje* atacante, Enemigo* objetivo) {
     printf("Al enemigo le queda %d\n de vida",objetivo->vida);
 }
 
+<<<<<<< HEAD
 void habilidad_ataque_personaje(Personaje* atacante, Enemigo* objetivo, int i) {
     printf("¡El jugador utiliza su habilidad especial!\n",habilidadesAtaque->nombre);
     objetivo->vida -= atacante->habilidadesAtaque[i]->modificadorHP;    
@@ -38,6 +37,16 @@ void habilidad_defensa_personaje(Personaje* atacante, Enemigo* objetivo, int i) 
     Habilidad* habilidad = atacante->habilidadesDefensa[i];
     printf("¡El jugador utiliza su habilidad especial!\n");
     objetivo->ataque -= habilidad->modificadorAtaque;
+=======
+void habilidad_ataque_personaje(Personaje* atacante, Enemigo* objetivo, int indicehabilidad) {
+    printf("¡El jugador utiliza su habilidad especial!\n");
+    //objetivo->vida -= atacante->habilidadesAtaque->modificadordevida;
+    printf("Al enemigo le queda %d\n de vida",objetivo->vida);
+}
+void habilidad_defensa_personaje(Personaje* atacante, Enemigo* objetivo, int indicehabilidad) {
+    printf("¡El jugador utiliza su habilidad especial!\n");
+    //objetivo->ataque -= atacante->habilidadesDefensa->modificadordeataque;
+>>>>>>> parent of d732088 (solo compila ataque normal)
     printf("Al enemigo le queda %d\n de vida",objetivo->vida);
 }
 
@@ -78,9 +87,14 @@ void ataque_normal_enemigo(Personaje*atacante, Enemigo*objetivo) {
 }
 
 void habilidad_ataque_enemigo(Personaje* atacante, Enemigo* objetivo){
+<<<<<<< HEAD
     Habilidad* habilidad;
     printf("¡El enemigo utiliza su habilidad especial!\n");
     //atacante->vida -= habilidad->modificadorHP;
+=======
+    printf("¡El enemigo utiliza su habilidad especial!\n");
+    //atacante->vida -= objetivo->habilidadesAtaque->modificadordevida;
+>>>>>>> parent of d732088 (solo compila ataque normal)
     printf("Te queda %d\n de vida",atacante->vida);
 } 
 

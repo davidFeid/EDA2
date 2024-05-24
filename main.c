@@ -262,6 +262,7 @@ int main() {
     //printf("\nEscenario:\n");
     //inicializar_habilidades(); 
     
+<<<<<<< HEAD
     //ColaTurnos *cola=malloc(sizeof(ColaTurnos));
     //init_cola_turnos(cola);
     //inicializar_turnos(cola);
@@ -276,6 +277,15 @@ int main() {
             //accion_enemigo(&fantasma1, &miPersonaje);
         //}
     //}
+=======
+    ColaTurnos *cola=malloc(sizeof(ColaTurnos));
+    init_cola_turnos(cola);
+    inicializar_turnos(cola);
+
+    printf("Iniciando combate:\n");
+    printf("Jugador: %s, Vida: %d\n", miPersonaje.nombre, miPersonaje.vida);
+    printf("Enemigo: %s, Vida: %d\n", fantasma1->nombre, fantasma1->vida);
+>>>>>>> parent of d732088 (solo compila ataque normal)
 
     //if (miPersonaje.vida > 0 && fantasma1->vida == 0) {
         //printf("\n¡El personaje ha ganado!\n");
