@@ -252,9 +252,9 @@ int main(){
     Enemigo fantasma1;
     init_enemigo(&fantasma1, "Fantasma de Soldado", 100, 50, 20, habilidadesEnemigo, 1);
 
-    accion_jugador(&miPersonaje, &fantasma1);
+    accion_jugador(&miPersonaje, &fantasma1); 
 
-    /* Mostrar los datos del personaje configurado
+    /*Mostrar los datos del personaje configurado
     printf("\nPersonaje: \n");
     print_personaje(&miPersonaje);
     printf("----------------------------------------------------\n");
@@ -277,11 +277,11 @@ int main(){
     }
 
     if (miPersonaje.vida > 0 && fantasma1->vida == 0) {
-        //printf("\n¡El personaje ha ganado!\n");
+        printf("\n¡El personaje ha ganado!\n");
     } else if (fantasma1->vida > 0 && miPersonaje.vida == 0) {
-        //printf("\n¡El fantasma1 ha ganado!\n");
+        printf("\n¡El fantasma1 ha ganado!\n");
     } else {
-        //printf("\n¡La batalla ha terminado en empate!\n");
+        printf("\n¡La batalla ha terminado en empate!\n");
     }
 
     liberar_cola_turnos(cola);
