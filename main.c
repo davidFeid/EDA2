@@ -148,6 +148,8 @@ void inicializar_opcion(Enemigo *enemigos[][2]){
     
 }
 
+
+
 void inicializar_decision(Opcion *opciones[][3]){
     Decision *decision1=malloc(sizeof(Decision));
     init_decision(decision1, "¿Qué quieres hacer?", opciones[0], 3);
@@ -233,6 +235,7 @@ int main() {
     init_habilidad(&habilidadesDefensa[3], "Resistencia", "Aumenta la resistencia a los ataques enemigos.", 0, 7, 5);
 
     Personaje miPersonaje;
+<<<<<<< HEAD
     init_personaje(&miPersonaje, habilidadesAtaque, 4, habilidadesDefensa, 4);
 
     Habilidad *habilidadesEnemigo[1];
@@ -242,6 +245,9 @@ int main() {
     init_enemigo(&fantasma1, "Fantasma de Soldado", 100, 50, 20, habilidadesEnemigo, 1);
 
     accion_jugador(&miPersonaje, &fantasma1);
+=======
+    init_personaje(&miPersonaje, habilidadesAtaque, 4, habilidadesDefensa, 4);  
+>>>>>>> parent of 2cc1d9d (ultimaso)
 
     //Mostrar los datos del personaje configurado
     //printf("\nPersonaje: \n");
@@ -250,6 +256,7 @@ int main() {
     //printf("\nEscenario:\n");
     //inicializar_habilidades(); 
     
+<<<<<<< HEAD
 <<<<<<< HEAD
     //ColaTurnos *cola=malloc(sizeof(ColaTurnos));
     //init_cola_turnos(cola);
@@ -266,10 +273,17 @@ int main() {
         //}
     //}
 =======
+=======
+>>>>>>> parent of 2cc1d9d (ultimaso)
     ColaTurnos *cola=malloc(sizeof(ColaTurnos));
     init_cola_turnos(cola);
     inicializar_turnos(cola);
 
+<<<<<<< HEAD
+=======
+    #include "main.h"
+    
+>>>>>>> parent of 2cc1d9d (ultimaso)
     printf("Iniciando combate:\n");
     printf("Jugador: %s, Vida: %d\n", miPersonaje.nombre, miPersonaje.vida);
     printf("Enemigo: %s, Vida: %d\n", fantasma1->nombre, fantasma1->vida);
@@ -285,6 +299,13 @@ int main() {
 
     //liberar_cola_turnos(cola);
 
+<<<<<<< HEAD
     //return 0;
 //}
+=======
+    liberar_cola_turnos(cola);
+
+    return 0;
+}
+>>>>>>> parent of 2cc1d9d (ultimaso)
 

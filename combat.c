@@ -94,6 +94,7 @@ void ataque_normal_enemigo(Personaje*atacante, Enemigo*objetivo) {
 
 void habilidad_ataque_enemigo(Personaje* atacante, Enemigo* objetivo){
 <<<<<<< HEAD
+<<<<<<< HEAD
     Habilidad* habilidad;
     printf("¡El enemigo utiliza su habilidad especial!\n");
     //atacante->vida -= habilidad->modificadorHP;
@@ -105,6 +106,14 @@ void habilidad_ataque_enemigo(Personaje* atacante, Enemigo* objetivo){
 } 
 
 void accion_enemigo(Enemigo* enemigo,Personaje* personaje){
+=======
+    Habilidad* habilidad;
+    printf("¡El enemigo utiliza su habilidad especial!\n");
+    atacante->vida -= habilidad->modificadorHP;
+    printf("Te queda %d\n de vida",atacante->vida);
+}
+void accion_enemigo(Enemigo* enemigo,Personaje* personaje) {
+>>>>>>> parent of 2cc1d9d (ultimaso)
     printf("Es el turno del enemigo.\n");
     randomHabilidad_enemigo(personaje,enemigo);
 }

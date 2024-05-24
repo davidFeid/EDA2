@@ -8,7 +8,12 @@ typedef struct{
     int vida;
     int ataque;
     int defensa;
+<<<<<<< HEAD
     Habilidad *habilidad; 
+=======
+    Habilidad* habilidades[2]; 
+    int num_habilidades;
+>>>>>>> parent of 2cc1d9d (ultimaso)
 } Enemigo;
 
 void init_enemigo(Enemigo *enemigo,  char *nombre, int vida, int ataque, int defensa,Habilidad *habilidades[],int num_habilidades) ;
