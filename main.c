@@ -253,42 +253,40 @@ int main() {
     Enemigo fantasma1;
     init_enemigo(&fantasma1, "Fantasma de Soldado", 100, 50, 20, habilidadesEnemigo, 1);
 
+    accion_jugador(&miPersonaje, &fantasma1);
+
     //Mostrar los datos del personaje configurado
-     printf("\nPensonaje: \n");
-    print_personaje(&miPersonaje);
-    printf("----------------------------------------------------\n");
-    printf("\nEscenario:\n");
-    inicializar_habilidades(); 
+    //printf("\nPersonaje: \n");
+    //print_personaje(&miPersonaje);
+    //printf("----------------------------------------------------\n");
+    //printf("\nEscenario:\n");
+    //inicializar_habilidades(); 
     
-    ColaTurnos *cola=malloc(sizeof(ColaTurnos));
-    init_cola_turnos(cola);
-    inicializar_turnos(cola);
+    //ColaTurnos *cola=malloc(sizeof(ColaTurnos));
+    //init_cola_turnos(cola);
+    //inicializar_turnos(cola);
     
-    printf("Iniciando combate:\n");
-    printf("Jugador: %s, Vida: %d\n", miPersonaje.nombre, miPersonaje.vida);
-    printf("Enemigo: %s, Vida: %d\n", fantasma1->nombre, fantasma1->vida);
+   //while (!is_empty(cola) && miPersonaje.vida > 0 && fantasma1->vida > 0) {
+        //TipoTurno tipo = desencolar_turno(cola);
+        //if (tipo == JUGADOR){
+            //printf("\nTurno del personaje:\n");
+            //accion_jugador(&miPersonaje, fantasma1);
+        //} else {
+            //printf("\nTurno del fantasma1:\n");
+            //accion_enemigo(&fantasma1, &miPersonaje);
+        //}
+    //}
 
-    while (!is_empty(cola) && miPersonaje.vida > 0 && fantasma1->vida > 0) {
-        TipoTurno tipo = desencolar_turno(cola);
-        if (tipo == JUGADOR) {
-            printf("\nTurno del personaje:\n");
-            accion_jugador(&miPersonaje, fantasma1);
-        } else {
-            printf("\nTurno del fantasma1:\n");
-            accion_enemigo(fantasma1, &miPersonaje);
-        }
-    }
+    //if (miPersonaje.vida > 0 && fantasma1->vida == 0) {
+        //printf("\n¡El personaje ha ganado!\n");
+    //} else if (fantasma1->vida > 0 && miPersonaje.vida == 0) {
+        //printf("\n¡El fantasma1 ha ganado!\n");
+    //} else {
+        //printf("\n¡La batalla ha terminado en empate!\n");
+    //}
 
-    if (miPersonaje.vida > 0 && fantasma1->vida == 0) {
-        printf("\n¡El personaje ha ganado!\n");
-    } else if (fantasma1->vida > 0 && miPersonaje.vida == 0) {
-        printf("\n¡El fantasma1 ha ganado!\n");
-    } else {
-        printf("\n¡La batalla ha terminado en empate!\n");
-    }
+    //liberar_cola_turnos(cola);
 
-    liberar_cola_turnos(cola); */
-
-    return 0;
-}
+    //return 0;
+//}
 
