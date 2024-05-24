@@ -4,14 +4,14 @@
 #include "main.c"
 
 
-void mostrar_habilidades(Habilidad* habilidadesAtaque[2], Habilidad* habilidadesDefensa[2]) {
+void mostrar_habilidades(Habilidad* habilidades_ataque[2], Habilidad* habilidades_defensa[2]) {
     printf("Habilidades disponibles:\n");
     printf("1. Ataque normal\n");
     for (int i = 0; i < 2; i++) {
-        printf("%d. Ataque: %s\n", i + 2, habilidadesAtaque[i]->nombre);
+        printf("%d. Ataque: %s\n", i + 2, habilidades_ataque[i]->nombre);
     }
     for (int i = 0; i < 2; i++) {
-        printf("%d. Defensa: %s\n", i + 4, habilidadesDefensa[i]->nombre);
+        printf("%d. Defensa: %s\n", i + 4, habilidades_defensa[i]->nombre);
     }
 }
 
@@ -29,15 +29,14 @@ void ataque_normal_personaje(Personaje* atacante, Enemigo* objetivo) {
     printf("Al enemigo le queda %d\n de vida",objetivo->vida);
 }
 
-void habilidad_ataque_personaje(Personaje* atacante, Enemigo* objetivo) {
-    int i;
-    printf("¡El jugador utiliza su habilidad especial!\n", atacante->habilidadesAtaque[i]->nombre);
-    objetivo->vida -= atacante->habilidadesAtaque[i]->modificadorDefensa;
+void habilidad_ataque_personaje(Personaje* atacante, Enemigo* objetivo, int indicehabilidad) {
+    Habilidad* habilidad = atacante->habilidadesAtaque[indicehabilidad];
+    printf("¡El jugador utiliza su habilidad especial!\n", habilidad->nombre);
+    objetivo->vida -= habilidad->modificadorHP;
     printf("Al enemigo le queda %d\n de vida",objetivo->vida);
 }
-
-void habilidad_defensa_personaje(Personaje* atacante, Enemigo* objetivo, int i) {
-    Habilidad* habilidad = atacante->habilidadesDefensa[i];
+void habilidad_defensa_personaje(Personaje* atacante, Enemigo* objetivo, int indicehabilidad) {
+    Habilidad* habilidad = atacante->habilidadesDefensa[indicehabilidad];
     printf("¡El jugador utiliza su habilidad especial!\n");
     objetivo->ataque -= habilidad->modificadorAtaque;
     printf("Al enemigo le queda %d\n de vida",objetivo->vida);
@@ -53,7 +52,7 @@ void accion_jugador(Personaje* personaje, Enemigo* enemigo) {
             ataque_normal_personaje(personaje,enemigo);
             break;
         case 2:
-            habilidad_ataque_personaje(personaje,enemigo);
+            habilidad_ataque_personaje(personaje,enemigo,opcion-1);
             break;
         case 3:
             habilidad_defensa_personaje(personaje,enemigo,opcion-2);

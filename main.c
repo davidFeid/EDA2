@@ -232,7 +232,7 @@ void accion_enemigo(Enemigo *fantasma1, Personaje *personaje) {
 int main() {
     // Crear una instancia de la estructura Personaje
     Habilidad habilidadesAtaque[4];
-    init_habilidad(&habilidadesAtaque[0], "Golpe Fuerte", "Un golpe poderoso que aumenta el ataque.", 10, 10, 10);
+    init_habilidad(&habilidadesAtaque[0], "Golpe Fuerte", "Un golpe poderoso que aumenta el ataque.", 10, 0, 0);
     init_habilidad(&habilidadesAtaque[1], "Ataque Rápido", "Un ataque rápido que golpea primero.", 5, 0, 0);
     init_habilidad(&habilidadesAtaque[2], "Explosión de Fuego", "Una explosión que inflige daño a múltiples enemigos.", 8, 0, 0);
     init_habilidad(&habilidadesAtaque[3], "Rayo", "Un rayo que atraviesa la defensa enemiga.", 12, 0, 0);

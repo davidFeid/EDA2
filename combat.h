@@ -16,9 +16,9 @@ void mostrar_habilidades(Habilidad* habilidades_ataque[2], Habilidad* habilidade
 
 void ataque_normal_personaje(Personaje* atacante, Enemigo* objetivo);
 
-void habilidad_ataque_personaje(Personaje* atacante, Enemigo* objetivo);
+void habilidad_ataque_personaje(Personaje* atacante, Enemigo* objetivo, int indicehabilidad);
 
-void habilidad_defensa_personaje(Personaje* atacante, Enemigo* objetivo, int i);
+void habilidad_defensa_personaje(Personaje* atacante, Enemigo* objetivo, int indicehabilidad);
 
 void playHumanTurn(Personaje* personaje, Enemigo* enemigo);
 
