@@ -159,8 +159,6 @@ void inicializar_opcion(Enemigo *enemigos[][2]){
     
 }
 
-
-
 void inicializar_decision(Opcion *opciones[][3]){
     Decision *decision1=malloc(sizeof(Decision));
     init_decision(decision1, "¿Qué quieres hacer?", opciones[0], 3);
@@ -246,7 +244,16 @@ int main() {
     init_habilidad(&habilidadesDefensa[3], "Resistencia", "Aumenta la resistencia a los ataques enemigos.", 0, 7, 5);
 
     Personaje miPersonaje;
-    init_personaje(&miPersonaje, habilidadesAtaque, 4, habilidadesDefensa, 4);  
+    init_personaje(&miPersonaje, habilidadesAtaque, 4, habilidadesDefensa, 4);
+
+    Habilidad *habilidadesEnemigo[1];
+    init_habilidad(habilidadesEnemigo[0], "Golpe Fantasmal", "Un ataque etéreo que atraviesa la defensa.", 15, 0, 0);
+
+    // Crear enemigo
+    Enemigo fantasma1;
+    init_enemigo(&fantasma1, "Fantasma de Soldado", 100, 50, 20, habilidadesEnemigo, 1);
+
+    accion_jugador(&miPersonaje, &fantasma1);
 
     // Mostrar los datos del personaje configurado
     /* printf("\nPensonaje: \n");
@@ -255,11 +262,9 @@ int main() {
     printf("\nEscenario:\n");
     inicializar_habilidades(); */
     
-    ColaTurnos *cola=malloc(sizeof(ColaTurnos));
+    /* ColaTurnos *cola=malloc(sizeof(ColaTurnos));
     init_cola_turnos(cola);
     inicializar_turnos(cola);
-
-    #include "main.h"
     
     printf("Iniciando combate:\n");
     printf("Jugador: %s, Vida: %d\n", miPersonaje.nombre, miPersonaje.vida);
@@ -284,7 +289,7 @@ int main() {
         printf("\n¡La batalla ha terminado en empate!\n");
     }
 
-    liberar_cola_turnos(cola);
+    liberar_cola_turnos(cola); */
 
     return 0;
 }

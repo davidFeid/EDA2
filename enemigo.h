@@ -8,7 +8,7 @@ typedef struct{
     int vida;
     int ataque;
     int defensa;
-    Habilidad* habilidades[2]; 
+    Habilidad **habilidades; 
     int num_habilidades;
 } Enemigo;
 
