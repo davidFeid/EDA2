@@ -63,7 +63,13 @@ void accion_jugador(Personaje* personaje, Enemigo* enemigo) {
             habilidad_ataque_personaje(personaje,enemigo,opcion-1);
             break;
         case 3:
-            habilidad_defensa_personaje(personaje,enemigo,opcion-2);
+            habilidad_ataque_personaje(personaje,enemigo,opcion-2);
+            break;
+        case 4:
+            habilidad_defensa_personaje(personaje,enemigo,opcion-3);
+            break;
+        case 5:
+            habilidad_defensa_personaje(personaje,enemigo,opcion-4);
             break;
         default:
             printf("Opcion no válida!, acabas de perder tu turno");

@@ -249,7 +249,6 @@ int main() {
     Habilidad *habilidadesEnemigo[1];
     init_habilidad(habilidadesEnemigo[0], "Golpe Fantasmal", "Un ataque etéreo que atraviesa la defensa.", 15, 0, 0);
 
-    // Crear enemigo
     Enemigo fantasma1;
     init_enemigo(&fantasma1, "Fantasma de Soldado", 100, 50, 20, habilidadesEnemigo, 1);
 
