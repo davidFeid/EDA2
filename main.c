@@ -253,16 +253,14 @@ int main() {
     Enemigo fantasma1;
     init_enemigo(&fantasma1, "Fantasma de Soldado", 100, 50, 20, habilidadesEnemigo, 1);
 
-    accion_jugador(&miPersonaje, &fantasma1);
-
-    // Mostrar los datos del personaje configurado
-    /* printf("\nPensonaje: \n");
+    //Mostrar los datos del personaje configurado
+     printf("\nPensonaje: \n");
     print_personaje(&miPersonaje);
     printf("----------------------------------------------------\n");
     printf("\nEscenario:\n");
-    inicializar_habilidades(); */
+    inicializar_habilidades(); 
     
-    /* ColaTurnos *cola=malloc(sizeof(ColaTurnos));
+    ColaTurnos *cola=malloc(sizeof(ColaTurnos));
     init_cola_turnos(cola);
     inicializar_turnos(cola);
     
