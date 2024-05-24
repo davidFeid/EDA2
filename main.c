@@ -159,8 +159,6 @@ void inicializar_opcion(Enemigo *enemigos[][2]){
     
 }
 
-
-
 void inicializar_decision(Opcion *opciones[][3]){
     Decision *decision1=malloc(sizeof(Decision));
     init_decision(decision1, "¿Qué quieres hacer?", opciones[0], 3);
@@ -231,7 +229,7 @@ void accion_enemigo(Enemigo *fantasma1, Personaje *personaje) {
     printf("%s ahora tiene %d puntos de vida\n", personaje->nombre, personaje->vida);
 } */
 
-int main() {
+int main(){
     // Crear una instancia de la estructura Personaje
     Habilidad habilidadesAtaque[4];
     init_habilidad(&habilidadesAtaque[0], "Golpe Fuerte", "Un golpe poderoso que aumenta el ataque.", 10, 10, 10);
@@ -246,46 +244,48 @@ int main() {
     init_habilidad(&habilidadesDefensa[3], "Resistencia", "Aumenta la resistencia a los ataques enemigos.", 0, 7, 5);
 
     Personaje miPersonaje;
-    init_personaje(&miPersonaje, habilidadesAtaque, 4, habilidadesDefensa, 4);  
+    init_personaje(&miPersonaje, habilidadesAtaque, 4, habilidadesDefensa, 4);
 
-    // Mostrar los datos del personaje configurado
-    /* printf("\nPensonaje: \n");
+    Habilidad *habilidadesEnemigo[1];
+    init_habilidad(habilidadesEnemigo[0], "Golpe Fantasmal", "Un ataque etéreo que atraviesa la defensa.", 15, 0, 0);
+
+    Enemigo fantasma1;
+    init_enemigo(&fantasma1, "Fantasma de Soldado", 100, 50, 20, habilidadesEnemigo, 1);
+
+    accion_jugador(&miPersonaje, &fantasma1);
+
+    /* Mostrar los datos del personaje configurado
+    printf("\nPersonaje: \n");
     print_personaje(&miPersonaje);
     printf("----------------------------------------------------\n");
     printf("\nEscenario:\n");
-    inicializar_habilidades(); */
+    inicializar_habilidades(); 
     
     ColaTurnos *cola=malloc(sizeof(ColaTurnos));
     init_cola_turnos(cola);
     inicializar_turnos(cola);
-
-    #include "main.h"
     
-    printf("Iniciando combate:\n");
-    printf("Jugador: %s, Vida: %d\n", miPersonaje.nombre, miPersonaje.vida);
-    printf("Enemigo: %s, Vida: %d\n", fantasma1->nombre, fantasma1->vida);
-
-    while (!is_empty(cola) && miPersonaje.vida > 0 && fantasma1->vida > 0) {
+   while (!is_empty(cola) && miPersonaje.vida > 0 && fantasma1->vida > 0) {
         TipoTurno tipo = desencolar_turno(cola);
-        if (tipo == JUGADOR) {
+        if (tipo == JUGADOR){
             printf("\nTurno del personaje:\n");
             accion_jugador(&miPersonaje, fantasma1);
         } else {
             printf("\nTurno del fantasma1:\n");
-            accion_enemigo(fantasma1, &miPersonaje);
+            accion_enemigo(&fantasma1, &miPersonaje);
         }
     }
 
     if (miPersonaje.vida > 0 && fantasma1->vida == 0) {
-        printf("\n¡El personaje ha ganado!\n");
+        //printf("\n¡El personaje ha ganado!\n");
     } else if (fantasma1->vida > 0 && miPersonaje.vida == 0) {
-        printf("\n¡El fantasma1 ha ganado!\n");
+        //printf("\n¡El fantasma1 ha ganado!\n");
     } else {
-        printf("\n¡La batalla ha terminado en empate!\n");
+        //printf("\n¡La batalla ha terminado en empate!\n");
     }
 
     liberar_cola_turnos(cola);
 
-    return 0;
+    return 0; */
 }
 

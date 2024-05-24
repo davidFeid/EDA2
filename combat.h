@@ -16,7 +16,7 @@ void mostrar_habilidades(Habilidad* habilidades_ataque[2], Habilidad* habilidade
 
 void ataque_normal_personaje(Personaje* atacante, Enemigo* objetivo);
 
-void habilidad_ataque_personaje(Personaje* atacante, Enemigo* objetivo);
+void habilidad_ataque_personaje(Personaje* atacante, Enemigo* objetivo, int i);
 
 void habilidad_defensa_personaje(Personaje* atacante, Enemigo* objetivo, int i);
 
@@ -29,5 +29,7 @@ void ataque_normal_enemigo(Personaje*atacante, Enemigo*objetivo);
 void habilidad_ataque_enemigo(Personaje* atacante, Enemigo* objetivo);
 
 void playMachineTurn(Personaje* personaje, Enemigo* enemigo);
+
+void accion_jugador(Personaje* jugador, Enemigo* objetivo);
 
 #endif

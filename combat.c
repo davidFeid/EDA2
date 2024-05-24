@@ -1,17 +1,15 @@
 #include "combat.h"
 #include "tiempo.h"
-#include "main.h"
-#include "main.c"
 
 
-void mostrar_habilidades(Habilidad* habilidadesAtaque[2], Habilidad* habilidadesDefensa[2]) {
+void mostrar_habilidades(Habilidad* habilidades_ataque[2], Habilidad* habilidades_defensa[2]) {
     printf("Habilidades disponibles:\n");
     printf("1. Ataque normal\n");
     for (int i = 0; i < 2; i++) {
-        printf("%d. Ataque: %s\n", i + 2, habilidadesAtaque[i]->nombre);
+        printf("%d. Ataque: %s\n", i + 2, habilidades_ataque[i]->nombre);
     }
     for (int i = 0; i < 2; i++) {
-        printf("%d. Defensa: %s\n", i + 4, habilidadesDefensa[i]->nombre);
+        printf("%d. Defensa: %s\n", i + 4, habilidades_defensa[i]->nombre);
     }
 }
 
@@ -29,13 +27,11 @@ void ataque_normal_personaje(Personaje* atacante, Enemigo* objetivo) {
     printf("Al enemigo le queda %d\n de vida",objetivo->vida);
 }
 
-void habilidad_ataque_personaje(Personaje* atacante, Enemigo* objetivo) {
-    int i;
-    printf("¡El jugador utiliza su habilidad especial!\n", atacante->habilidadesAtaque[i]->nombre);
-    objetivo->vida -= atacante->habilidadesAtaque[i]->modificadorDefensa;
+void habilidad_ataque_personaje(Personaje* atacante, Enemigo* objetivo, int i){
+    printf("¡El jugador utiliza su habilidad especial!");
+    objetivo->vida -= atacante->habilidadesAtaque[i]->modificadorHP;    
     printf("Al enemigo le queda %d\n de vida",objetivo->vida);
 }
-
 void habilidad_defensa_personaje(Personaje* atacante, Enemigo* objetivo, int i) {
     Habilidad* habilidad = atacante->habilidadesDefensa[i];
     printf("¡El jugador utiliza su habilidad especial!\n");
@@ -53,10 +49,16 @@ void accion_jugador(Personaje* personaje, Enemigo* enemigo) {
             ataque_normal_personaje(personaje,enemigo);
             break;
         case 2:
-            habilidad_ataque_personaje(personaje,enemigo);
+            habilidad_ataque_personaje(personaje,enemigo,opcion-1);
             break;
         case 3:
-            habilidad_defensa_personaje(personaje,enemigo,opcion-2);
+            habilidad_ataque_personaje(personaje,enemigo,opcion-2);
+            break;
+        case 4:
+            habilidad_defensa_personaje(personaje,enemigo,opcion-3);
+            break;
+        case 5:
+            habilidad_defensa_personaje(personaje,enemigo,opcion-4);
             break;
         default:
             printf("Opcion no válida!, acabas de perder tu turno");
@@ -79,13 +81,14 @@ void ataque_normal_enemigo(Personaje*atacante, Enemigo*objetivo) {
     printf("Te queda %d\n de vida",atacante->vida);
 }
 
-void habilidad_ataque_enemigo(Personaje* atacante, Enemigo* objetivo){
-    Habilidad* habilidad;
-    printf("¡El enemigo utiliza su habilidad especial!\n");
-    atacante->vida -= habilidad->modificadorHP;
-    printf("Te queda %d\n de vida",atacante->vida);
-}
-void accion_enemigo(Enemigo* enemigo,Personaje* personaje) {
+//void habilidad_ataque_enemigo(Personaje* atacante, Enemigo* objetivo){
+    //Habilidad* habilidad;
+    //printf("¡El enemigo utiliza su habilidad especial!\n");
+    //atacante->vida -= habilidad->modificadorHP;
+    //printf("Te queda %d\n de vida",atacante->vida);
+//} 
+
+void accion_enemigo(Enemigo* enemigo,Personaje* personaje){
     printf("Es el turno del enemigo.\n");
     randomHabilidad_enemigo(personaje,enemigo);
 }
