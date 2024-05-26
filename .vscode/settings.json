@@ -6,6 +6,7 @@
         "common.h": "c",
         "personaje.h": "c",
         "assert.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "turno.h": "c"
     }
 }
