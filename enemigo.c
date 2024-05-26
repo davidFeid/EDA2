@@ -13,7 +13,7 @@ void init_enemigo(Enemigo *enemigo, char *nombre, int vida, int ataque, int defe
     enemigo->num_habilidades=num_habilidades;
     // Reservamos memoria para el array de habilidades
     
-    enemigo->habilidades = malloc(num_habilidades * sizeof(Habilidad *));
+    //enemigo->habilidades[i] = malloc(num_habilidades * sizeof(Habilidad *));
  
     // Copiamos cada habilidad al array de habilidades del enemigo
     for (int i = 0; i < num_habilidades; i++) {

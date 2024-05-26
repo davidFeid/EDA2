@@ -4,8 +4,8 @@
 #include "common.h"
 
 typedef struct  {
-    char nombre[NOMBRE];
-    char descripcion[TEXTO];
+    char *nombre;
+    char *descripcion;
     int modificadorAtaque;
     int modificadorDefensa;
     int modificadorHP;
@@ -14,11 +14,12 @@ typedef struct  {
 //Funciones
 
 void init_habilidad(Habilidad *habilidad,
-                    char *nombre,
-                    char *descripcion,
+                    const char *nombre,
+                    const char *descripcion,
                     int modificadorAtaque,
                     int modificadorDefensa,
                     int modificadorHP);
+
 void printHabilidad(Habilidad *habilidad);
 
 void freeHabilidad(Habilidad *habilidad);

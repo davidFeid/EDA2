@@ -1,12 +1,20 @@
 #include "habilidad.h"
 
 void init_habilidad(Habilidad *habilidad,
-                    char *nombre,
-                    char *descripcion,
+                    const char *nombre,
+                    const char *descripcion,
                     int modificadorAtaque,
                     int modificadorDefensa,
-                    int modificadorHP) {
-    
+                    int modificadorHP){
+    // Asignar memoria para nombre y descripcion
+    habilidad->nombre = malloc(strlen(nombre) + 1);  // +1 para el carácter nulo
+    habilidad->descripcion = malloc(strlen(descripcion) + 1);  // +1 para el carácter nulo
+
+    if (habilidad->nombre == NULL || habilidad->descripcion == NULL) {
+        fprintf(stderr, "Error al asignar memoria para los nombres o descripciones\n");
+        exit(1);
+    }
+
     strcpy(habilidad->nombre, nombre);
     strcpy(habilidad->descripcion, descripcion);
     habilidad->modificadorAtaque = modificadorAtaque;
