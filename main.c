@@ -1,4 +1,5 @@
 #include "main.h"
+#include "combat.h"
 
 void inicializar_habilidades(){
     // Fantasma

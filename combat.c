@@ -1,4 +1,4 @@
-#include "combat.h"
+#include "main.h"
 #include "combat.h"
 
 
