@@ -1,3 +1,5 @@
+#ifndef COMBATE_H
+#define COMBATE_H
 
 #include "enemigo.h"
 #include "decision.h"
@@ -29,3 +31,4 @@ void accion_jugador(Personaje* personaje, Enemigo* enemigo);
 
 void accion_enemigo(Enemigo* enemigo,Personaje* personaje);
 
+#endif

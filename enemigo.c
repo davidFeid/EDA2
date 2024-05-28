@@ -3,6 +3,9 @@
 
 
 void init_enemigo(Enemigo *enemigo, char *nombre, int vida, int ataque, int defensa, Habilidad *habilidades[],int num_habilidades) {
+    // Copiamos el nombre del enemigo
+    strcpy(enemigo->nombre, nombre);
+    // Asignamos la vida, ataque y defensa
     strcpy(enemigo->nombre, nombre);
 
   // Asignamos la vida, ataque y defensa
@@ -48,6 +51,7 @@ void print_enemigo( Enemigo *enemigo) {
         printf("                Vida: %d\n", enemigo->vida);
         printf("                Ataque: %d\n", enemigo->ataque);
         printf("                Defensa: %d\n", enemigo->defensa);
+    }
     }  
 }
 
