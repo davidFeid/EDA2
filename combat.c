@@ -68,12 +68,14 @@ void accion_jugador(Personaje* personaje, Enemigo* enemigo) {
 
 void randomHabilidad_enemigo(Personaje* personaje, Enemigo* enemigo){
     /* srand(time(NULL));
+    srand(time(NULL));
     int opcion = rand() % 2;
     if(opcion == 0){
         ataque_normal_enemigo(personaje,enemigo);
     }else{
         habilidad_ataque_enemigo(personaje,enemigo);
     } */
+    }
 }
 void ataque_normal_enemigo(Personaje*atacante, Enemigo*objetivo) {
     printf("¡El enemigo te golpea con un ataque normal!\n");

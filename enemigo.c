@@ -6,6 +6,9 @@ void init_enemigo(Enemigo *enemigo, char *nombre, int vida, int ataque, int defe
     // Copiamos el nombre del enemigo
     strcpy(enemigo->nombre, nombre);
     // Asignamos la vida, ataque y defensa
+    strcpy(enemigo->nombre, nombre);
+
+  // Asignamos la vida, ataque y defensa
     enemigo->vida = vida;
     enemigo->ataque = ataque;
     enemigo->defensa = defensa;
@@ -37,7 +40,6 @@ void init_enemigo(Enemigo *enemigo, char *nombre, int vida, int ataque, int defe
 
 } */
 
-
 void print_enemigo( Enemigo *enemigo) {
     if (enemigo != NULL) {
         printf("                Nombre: %s\n", enemigo->nombre);
@@ -50,8 +52,7 @@ void print_enemigo( Enemigo *enemigo) {
         printf("                Ataque: %d\n", enemigo->ataque);
         printf("                Defensa: %d\n", enemigo->defensa);
     }
-
-    
+    }  
 }
 
 
