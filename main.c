@@ -220,12 +220,27 @@ int main() {
     Personaje miPersonaje;
     init_personaje(&miPersonaje, habilidadesAtaque, 4, habilidadesDefensa, 4);  
 
+    Habilidad *ataquesusto = malloc(sizeof(Habilidad));
+    init_habilidad(ataquesusto, "ataque susto", "Los fantasmas desaparacen para asustarte y quitarte vida y puntos de defensa", 0, 10, 5);
+
+    Habilidad *proteccioneterea = malloc(sizeof(Habilidad));
+    init_habilidad(proteccioneterea, "protección etérea", "El fantasma se vuelve intangible, reduciendo el daño recibido", 15, 0, 0);
+
+    Habilidad *habilidades[][4]={{ataquesusto,proteccioneterea}};
+    //printHabilidad(&habilidades);
+    Enemigo fantasma1; 
+    init_enemigo(&fantasma1,"Fantasma",100,20,100,habilidades[0],2);
+    //print_enemigo(&fantasma1);
+
+    accion_jugador(&miPersonaje,&fantasma1);
+    
     // Mostrar los datos del personaje configurado
     printf("\nPensonaje: \n");
-    print_personaje(&miPersonaje);
+    //print_personaje(&miPersonaje);
     printf("----------------------------------------------------\n");
     printf("\nEscenario:\n");
-    inicializar_habilidades();
+    //inicializar_habilidades();
     return 0;
+
 }
 

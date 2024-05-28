@@ -1,7 +1,6 @@
 #ifndef PERSONAJE_H
 #define PERSONAJE_H
 
-#include <stdio.h>
 #include "common.h"
 #include "habilidad.h"
 
