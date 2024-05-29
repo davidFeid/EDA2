@@ -30,5 +30,5 @@ void free_decision(Decision *decision) {
     if (decision != NULL) {
         free(decision);
     }
-    
+
 }

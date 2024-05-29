@@ -5,10 +5,10 @@
 #include "decision.h"
 
 typedef struct {
-    char nombre[NOMBRE]; // Nombre del escenario
-    char descripcion[TEXTO]; // Descripción del escenario
-    Decision *decision; // Lista de decisiones del escenario
-     // Número de decisiones del escenario
+    char nombre[NOMBRE]; 
+    char descripcion[TEXTO]; 
+    Decision *decision; // Decisión del escenario
+     
 } Escenario;
 
 void init_escenario(Escenario *escenario, char *nombre, char *descripcion, Decision *decision);

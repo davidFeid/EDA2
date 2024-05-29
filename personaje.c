@@ -1,15 +1,6 @@
 #include <stdio.h>
 #include "personaje.h"
 
-/* void init_prota(Personaje *personaje,  char *nombre, int vida, int ataque, int defensa,  char habilidades[4][50]) {
-    strcpy(personaje->nombre, nombre);
-    personaje->vida = vida;
-    personaje->ataque = ataque;
-    personaje->defensa = defensa;
-    for (int i = 0; i < 4; i++) {
-        strcpy(personaje->habilidades[i], habilidades[i]);
-    }
-} */
 void init_personaje(Personaje *personaje, Habilidad *habilidadesAtaque, int numHabilidadesAtaque, Habilidad *habilidadesDefensa, int numHabilidadesDefensa)  {
     printf("¡Bienvenido! Vamos a configurar a tu personaje.\n");
     
@@ -27,7 +18,7 @@ void init_personaje(Personaje *personaje, Habilidad *habilidadesAtaque, int numH
     printf("Ingresa los puntos de defensa de tu personaje: ");
     scanf("%d", &personaje->defensa);
 
-     // Mostrar habilidades de ataque disponibles y permitir la selección
+    // Mostrar habilidades de ataque disponibles y permitir la selección
     printf("Escoge dos de estas habilidades de ataque:\n");
     for (int i = 0; i < numHabilidadesAtaque; i++) {
         printf("%d. %s: %s\n", i + 1, habilidadesAtaque[i].nombre, habilidadesAtaque[i].descripcion);
@@ -70,9 +61,9 @@ void init_personaje(Personaje *personaje, Habilidad *habilidadesAtaque, int numH
     // Almacenar las habilidades de defensa seleccionadas en el personaje
     personaje->habilidadesDefensa[0] = &habilidadesDefensa[seleccionDefensa1 - 1];
     personaje->habilidadesDefensa[1] = &habilidadesDefensa[seleccionDefensa2 - 1];
-
 }
 
+// Función para imprimir la información de un personaje
 void print_personaje(Personaje *personaje) {
     printf("\nNombre: %s\n", personaje->nombre);
     printf("Vida: %d\n", personaje->vida);
@@ -80,18 +71,17 @@ void print_personaje(Personaje *personaje) {
     printf("Defensa: %d\n", personaje->defensa);
     printf("Habilidades de ataque:\n");
     for (int i = 0; i < 2; i++) {
-        printHabilidad( personaje->habilidadesAtaque[i]);
+        printHabilidad(personaje->habilidadesAtaque[i]);
     }
     printf("Habilidades de defensa:\n");
     for (int i = 0; i < 2; i++) {
-        printHabilidad( personaje->habilidadesDefensa[i]);
+        printHabilidad(personaje->habilidadesDefensa[i]);
     }
 }
 
+// Función para liberar la memoria asignada a un personaje
 void free_personaje(Personaje *personaje){
-    if (personaje!=NULL)
-    {
-        free(personaje);
+    if (personaje != NULL) {
+        free(personaje); 
     }
-    
 }

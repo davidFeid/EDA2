@@ -1,5 +1,6 @@
 #include "habilidad.h"
 
+// Función para inicializar una habilidad con su nombre, descripción y modificadores
 void init_habilidad(Habilidad *habilidad,
                     char *nombre,
                     char *descripcion,
@@ -14,6 +15,7 @@ void init_habilidad(Habilidad *habilidad,
     habilidad->modificadorHP = modificadorHP;
 }
 
+// Función para imprimir la información de una habilidad
 void printHabilidad(Habilidad *habilidad) {
     printf("                    Nombre: %s\n", habilidad->nombre);
     printf("                    Descripción: %s\n", habilidad->descripcion);
@@ -22,7 +24,9 @@ void printHabilidad(Habilidad *habilidad) {
     printf("                    Modificador de HP: %d\n", habilidad->modificadorHP);
 }
 
+// Función para liberar la memoria asignada a una habilidad
 void freeHabilidad(Habilidad *habilidad){
-    if(habilidad != NULL) free(habilidad);
+    if(habilidad != NULL){
+     free(habilidad); 
+    }
 }
-

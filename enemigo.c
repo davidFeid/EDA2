@@ -15,10 +15,11 @@ void init_enemigo(Enemigo *enemigo, char *nombre, int vida, int ataque, int defe
     
     // Copiar cada habilidad al array de habilidades del enemigo
     for (int i = 0; i < num_habilidades; i++) {
-        //enemigo->habilidades[i] = malloc(sizeof(Habilidad));
+        enemigo->habilidades[i] = malloc(sizeof(Habilidad));
 
         strcpy(enemigo->habilidades[i]->nombre, habilidades[i]->nombre);
         strcpy(enemigo->habilidades[i]->descripcion, habilidades[i]->descripcion);
+        
         enemigo->habilidades[i]->modificadorAtaque = habilidades[i]->modificadorAtaque;
         enemigo->habilidades[i]->modificadorDefensa = habilidades[i]->modificadorDefensa;
         enemigo->habilidades[i]->modificadorHP = habilidades[i]->modificadorHP;
