@@ -28,7 +28,6 @@ void print_opcion(Opcion *opcion) {
             print_enemigo(opcion->enemigos[i]);
         }
     }
-    printf("        Narración después: %s\n", opcion->narracion_despues);
 }
 
 // Función para liberar memoria de una opción

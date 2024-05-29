@@ -6,9 +6,9 @@
 #include "enemigo.h"
 
 typedef struct {
-    char texto_pregunta[TEXTO]; // Texto de la pregunta para el jugador
+    char texto_pregunta[TEXTO]; 
     Opcion **opciones; // Array de opciones
-    int num_opciones; // Número de opciones
+    int num_opciones; 
 } Decision;
 
 void init_decision(Decision *decision, char *texto_pregunta, Opcion *opciones[], int num_opciones);

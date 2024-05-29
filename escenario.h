@@ -7,11 +7,11 @@
 typedef struct {
     char nombre[NOMBRE]; // Nombre del escenario
     char descripcion[TEXTO]; // Descripción del escenario
-    Decision **decisiones; // Lista de decisiones del escenario
-    int num_decisiones; // Número de decisiones del escenario
+    Decision *decision; // Lista de decisiones del escenario
+     // Número de decisiones del escenario
 } Escenario;
 
-void init_escenario(Escenario *escenario, char *nombre, char *descripcion, Decision *decisiones[], int num_decisiones);
+void init_escenario(Escenario *escenario, char *nombre, char *descripcion, Decision *decision);
 
 void print_escenario(Escenario *escenario);
 
