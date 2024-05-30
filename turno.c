@@ -49,6 +49,19 @@ TipoTurno desencolar_turno(ColaTurnos *cola) {
     return tipo;
 }
 
+void inicializar_turnos(ColaTurnos *cola) {
+    //srand(time(NULL));
+    int jugador = 0;
+    for (int i = 0; i < NUM_TURNOS; i++) {
+        if (rand() % 2 == 0 && jugador < (NUM_TURNOS/2)) {
+            encolar_turno(cola, JUGADOR);
+            jugador ++;
+        } else {
+            encolar_turno(cola, ENEMIGO);
+        }
+    }
+}
+
 // Libera toda la memoria usada por la cola de turnos
 void liberar_cola_turnos(ColaTurnos *cola) {
     while (!is_empty(cola)) {

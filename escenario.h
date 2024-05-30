@@ -3,6 +3,8 @@
 
 #include "common.h"
 #include "decision.h"
+#include "combat.h"
+#include "movimiento.h"
 
 typedef struct {
     char nombre[NOMBRE]; // Nombre del escenario
@@ -16,5 +18,7 @@ void init_escenario(Escenario *escenario, char *nombre, char *descripcion, Decis
 void print_escenario(Escenario *escenario);
 
 void free_escenario(Escenario *escenario);
+
+void jugar_escenario(Personaje* personaje, Escenario *escenario,Movimiento** historial);
 
 #endif

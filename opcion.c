@@ -12,8 +12,7 @@ void init_opcion(Opcion *opcion, char *texto_respuesta, char *narracion_antes, E
     }
     opcion->num_enemigos = num_enemigos;
     strcpy(opcion->narracion_despues, narracion_despues);
-    /*print_enemigo(enemigos[1]);
-    print_enemigo(opcion->enemigos[1]);*/
+    
 }
 
 // Función para imprimir una opción
@@ -28,7 +27,7 @@ void print_opcion(Opcion *opcion) {
             print_enemigo(opcion->enemigos[i]);
         }
     }
-    printf("        Narración después: %s\n", opcion->narracion_despues);
+    printf("\n");
 }
 
 // Función para liberar memoria de una opción

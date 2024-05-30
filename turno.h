@@ -31,6 +31,8 @@ void encolar_turno(ColaTurnos *cola, TipoTurno tipo);
 
 TipoTurno desencolar_turno(ColaTurnos *cola);
 
+void inicializar_turnos(ColaTurnos *cola);
+
 void liberar_cola_turnos(ColaTurnos *cola);
 
 #endif

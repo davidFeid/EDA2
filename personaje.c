@@ -1,31 +1,40 @@
 #include <stdio.h>
 #include "personaje.h"
 
-/* void init_prota(Personaje *personaje,  char *nombre, int vida, int ataque, int defensa,  char habilidades[4][50]) {
-    strcpy(personaje->nombre, nombre);
-    personaje->vida = vida;
-    personaje->ataque = ataque;
-    personaje->defensa = defensa;
-    for (int i = 0; i < 4; i++) {
-        strcpy(personaje->habilidades[i], habilidades[i]);
-    }
-} */
-void init_personaje(Personaje *personaje, Habilidad *habilidadesAtaque, int numHabilidadesAtaque, Habilidad *habilidadesDefensa, int numHabilidadesDefensa)  {
+
+void init_personaje(Personaje *personaje, Habilidad *habilidadesAtaque, int numHabilidadesAtaque, Habilidad *habilidadesDefensa, int numHabilidadesDefensa) {
     printf("¡Bienvenido! Vamos a configurar a tu personaje.\n");
     
     // Solicitar y almacenar el nombre del personaje
     printf("Ingresa el nombre de tu personaje: ");
     scanf("%s", personaje->nombre);
 
-    // Solicitar y almacenar los puntos de vida, ataque y defensa
-    printf("Ingresa los puntos de vida de tu personaje: ");
-    scanf("%d", &personaje->vida);
+    // Solicitar y almacenar la dificultad
+    int dificultad;
+    printf("Selecciona la dificultad (1: Fácil, 2: Normal, 3: Difícil): ");
+    scanf("%d", &dificultad);
 
-    printf("Ingresa los puntos de ataque de tu personaje: ");
-    scanf("%d", &personaje->ataque);
-
-    printf("Ingresa los puntos de defensa de tu personaje: ");
-    scanf("%d", &personaje->defensa);
+    // Asignar valores predeterminados según la dificultad
+    switch(dificultad) {
+        case 1: // Fácil
+            personaje->vida = 150;
+            personaje->ataque = 40;
+            personaje->defensa = 150;
+            break;
+        case 2: // Normal
+            personaje->vida = 125;
+            personaje->ataque = 30;
+            personaje->defensa = 100;
+            break;
+        case 3: // Difícil
+            personaje->vida = 100;
+            personaje->ataque = 40;
+            personaje->defensa = 50;
+            break;
+        default:
+            fprintf(stderr, "Dificultad inválida. Por favor, reinicia el programa y selecciona una dificultad válida.\n");
+            exit(EXIT_FAILURE);
+    }
 
      // Mostrar habilidades de ataque disponibles y permitir la selección
     printf("Escoge dos de estas habilidades de ataque:\n");
@@ -71,6 +80,7 @@ void init_personaje(Personaje *personaje, Habilidad *habilidadesAtaque, int numH
     personaje->habilidadesDefensa[0] = &habilidadesDefensa[seleccionDefensa1 - 1];
     personaje->habilidadesDefensa[1] = &habilidadesDefensa[seleccionDefensa2 - 1];
 
+    personaje->usado_golpe_de_tiempo = 0;
 }
 
 void print_personaje(Personaje *personaje) {
