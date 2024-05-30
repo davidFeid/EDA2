@@ -207,9 +207,9 @@ void inicializar_escenario(Decision *decisiones[]){
     init_escenario(escenario2, "Bosque Oscuro", 
     "Acabas de adentrarte al fin en la zona boscosa de KINGSLAND y no puedes observar nada de lo que hay más allá de los árboles. La luz dentro del bosque es oscura y el aire que se puede respirar contiene temor. Dentro de este se pueden escuchar llantos, gritos de desesperación y de dolor que provocan una mala experiencia para todo ser que entre en él. Hace unos años todo esto no era así, la gente iba dentro del bosque a buscar recursos y toda persona que lo visitaba tenía ganas de volver. Ahora mismo, no se siente ni una señal de vida, todo está destrozado y las voces de las almas de toda persona fallecida aquí dentro te están comiendo la cabeza.\n\n"
     "Sigues caminando, peleando contra toda voz maldita que se intenta apoderar de ti, y poco a poco ves cómo los árboles están aumentando su tamaño considerablemente. Te das cuenta de que no sabes muy bien dónde estás localizado, ya que todo el bosque es muy repetitivo y parecido, pero en medio de la nada, te encuentras unos carteles que te indican lo siguiente:\n\n"
-    "Si sigues hacia adelante llegarás al lago sin perderte y sin escuchar voces, pero tendrás que superar obstáculos naturales.\n"
-    "Si sigues hacia la izquierda, irás por el camino más rápido hacia el lago, pero es probable que te pierdas y acabes en un laberinto.\n"
-    "Si sigues hacia la derecha, continuarás escuchando las voces tenebrosas pero acabarás en el lago igualmente.",
+    "Si sigues hacia adelante llegarás a tu destino sin perderte y sin escuchar voces, pero tendrás que superar obstáculos naturales.\n"
+    "Si sigues hacia la izquierda, irás por el camino más rápido hacia tu destino, pero es probable que te pierdas y acabes en un laberinto.\n"
+    "Si sigues hacia la derecha, continuarás escuchando las voces tenebrosas pero acabarás en tu destino igualmente.",
     &decisiones[1],1);
 
     Escenario *escenario3=malloc(sizeof(Escenario));
