@@ -1,11 +1,6 @@
 {
     "files.associations": {
-        "main.h": "c",
-        "opcion.h": "c",
-        "habilidad.h": "c",
-        "common.h": "c",
-        "personaje.h": "c",
-        "assert.h": "c",
-        "stdio.h": "c"
+        "movimiento.h": "c",
+        "main.h": "c"
     }
 }
