@@ -106,16 +106,16 @@ void habilidad_enemigo(Enemigo* objetivo, Personaje* atacante, int i){
         if(atacante->defensa >= objetivo->habilidades[i]->modificadorAtaque){ //Com hem vist abans, la defensa del usuari també s'ha de tenir en compte contra els enemics, així que fins que no et treguin la defensa, no et podrán matar
             printf("¡El enemigo utiliza %s contra tu defensa! \n", objetivo->habilidades[i]->nombre);
             atacante->defensa -= objetivo->habilidades[i]->modificadorAtaque; //Així que s'anirá restant la teva defensa fins que aquesta sigui zero
-            printf("Te queda %d de defensa",atacante->defensa);  
+            printf("Te queda %d de defensa \n",atacante->defensa);  
         }else{
             printf("¡El enemigo utiliza %s con lo que te ataca con todo su poder! \n", objetivo->habilidades[i]->nombre);
             atacante->vida -= objetivo->habilidades[i]->modificadorAtaque - atacante->defensa; //Quan sigui zero, llavors tots els atacs del enemic s'efectuarán contra la teva salud principal, així que s'anirá restant fins que estiguis en zero
-            printf("Te queda %d de vida",atacante->vida);
+            printf("Te queda %d de vida \n",atacante->vida);
         }
     }else if(objetivo->habilidades[i]->modificadorDefensa > 0){
         printf("¡El enemigo utiliza %s con el que se sube la defensa! \n", objetivo->habilidades[i]->nombre);
         objetivo->defensa += objetivo->habilidades[i]->modificadorDefensa; //En el cas de que hagi decidit la màquina augmentarse la defensa, se li anirá sumant a les seves estadístiques
-        printf("Al enemigo le queda %d de defensa",objetivo->defensa);
+        printf("Al enemigo le queda %d de defensa \n",objetivo->defensa);
     }
     
 }
@@ -125,11 +125,11 @@ void ataque_normal_enemigo(Personaje*atacante, Enemigo*objetivo) {
     if(atacante->defensa >= objetivo->ataque){
         printf("El enemigo golpea con un ataque normal tu defensa");
         atacante->defensa -= objetivo->ataque;
-        printf("Te queda %d de defensa", atacante->defensa);
+        printf("Te queda %d de defensa \n", atacante->defensa);
     }else{
         printf("¡El enemigo te golpea con un ataque normal!\n");
         atacante->vida -= objetivo->ataque -atacante->defensa;
-        printf("Te queda %d de vida",atacante->vida);
+        printf("Te queda %d de vida \n",atacante->vida);
     }
 }
 
